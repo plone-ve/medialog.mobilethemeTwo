@@ -1,0 +1,6 @@
+ 
+*.gz
+
+*.pyc
+
+medialog.mobilethemeOne.egg-info
