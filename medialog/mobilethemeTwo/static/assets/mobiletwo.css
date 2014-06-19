@@ -1,7 +1,4 @@
-/* @override 
-	http:/localhost:8080/Slow/++theme++medialog.mobilethemeTwo/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css
-	http://localhost:8080/Slow/++theme++medialog.mobilethemeTwo/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css
-*/
+/* @override http://localhost:8080/Slow/++theme++medialog.mobilethemeTwo/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css */
 
 @import url(http:/fonts.googleapis.com/css?family=Source+Sans+Pro);
 
@@ -277,6 +274,8 @@ div.contakt-info {
     font-size: 1.2em;
     line-height: 2em;
 }
+
+
  
 .contakt-info a.btn.button img {
  width: 24px;
@@ -560,8 +559,17 @@ ul.small a {
 	-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.3);
 }
 
+div#content {
+	border-top:  1px solid #DDD;
+	border-bottom:  1px solid #DDD;
+}
+
 #content-core {
-	padding-bottom: 30px;
+	padding-bottom: 15px;
+}
+
+#parent-fieldname-text {
+  margin-top:  1em;	
 }
 
 #content-core:first-of-type {
@@ -588,6 +596,10 @@ ul.small a {
 	box-sizing: border-box;
 }
 
+img.newsImage {
+	margin: 0.3em 0 0.5em 1em;
+	float: right;
+}
 
 
 a.more {

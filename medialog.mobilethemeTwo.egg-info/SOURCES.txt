@@ -29,7 +29,6 @@ medialog/mobilethemeTwo/static/assets/navigation.css
 medialog/mobilethemeTwo/static/assets/ploneui.css
 medialog/mobilethemeTwo/static/assets/reset.css
 medialog/mobilethemeTwo/static/assets/slider.min.js
-medialog/mobilethemeTwo/static/assets/theme.css
 medialog/mobilethemeTwo/static/assets/IcoMoon/.DS_Store
 medialog/mobilethemeTwo/static/assets/IcoMoon/.gitignore
 medialog/mobilethemeTwo/static/assets/IcoMoon/License.txt
@@ -487,6 +486,7 @@ medialog/mobilethemeTwo/static/assets/IcoMoon/Icons/png/16px/youtube.png
 medialog/mobilethemeTwo/static/assets/IcoMoon/Icons/png/16px/youtube2.png
 medialog/mobilethemeTwo/static/assets/IcoMoon/Icons/png/16px/zoom-in.png
 medialog/mobilethemeTwo/static/assets/IcoMoon/Icons/png/16px/zoom-out.png
+medialog/mobilethemeTwo/static/assets/IcoMoon/Icons/png/32px/.DS_Store
 medialog/mobilethemeTwo/static/assets/IcoMoon/Icons/png/32px/accessibility.png
 medialog/mobilethemeTwo/static/assets/IcoMoon/Icons/png/32px/address-book.png
 medialog/mobilethemeTwo/static/assets/IcoMoon/Icons/png/32px/aid.png
