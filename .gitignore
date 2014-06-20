@@ -3,4 +3,8 @@
 
 *.pyc
 
-medialog.mobilethemeOne.egg-info
+medialog.mobilethemeTwo.egg-info
+
+medialog.mobilethemeTwo.egg-info/
+
+medialog.mobilethemeTwo.egg-info /
