@@ -1,4 +1,4 @@
-from zope.interface import Interface
+from plone.theme.interfaces import IDefaultPloneLayer
 
-class IThemeSpecific(Interface):
-    """A layer specific to my mobilethemeTwo       """
+class IThemeSpecific(IDefaultPloneLayer):
+    """Marker interface that defines a Zope 3 browser layer.    """

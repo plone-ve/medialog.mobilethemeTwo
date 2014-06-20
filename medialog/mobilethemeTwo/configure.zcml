@@ -18,15 +18,16 @@
       />
   <plone:static type="theme" directory="static" />
   
+	<interface
+        interface="medialog.mobilethemeTwo.interfaces.IThemeSpecific"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="medialog.mobilethemeTwo"
+        />  
   
   <include package="z3c.jbot" file="meta.zcml" />
-  <include package="plone.browserlayer" />
   
   <browser:jbot
     directory="jbot-templates"
     layer="medialog.mobilethemeTwo.interfaces.IThemeSpecific" />
     
-
-
-  
 </configure>
