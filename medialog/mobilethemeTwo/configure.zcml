@@ -17,12 +17,12 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
- 
   <plone:static type="theme" directory="static" />
-  <include package="z3c.jbot" file="meta.zcml" />
   
+  <include package="z3c.jbot" file="meta.zcml" />
+
   <browser:jbot
     directory="static/jbot-templates"
-    layer=".interfaces.ICustomTheme"/>
+    layer=".interfaces.IThemeSpecific"/>
     
 </configure>
