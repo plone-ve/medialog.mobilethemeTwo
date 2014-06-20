@@ -23,6 +23,8 @@
   <browser:jbot
     directory="static/jbot"
     layer="medialog.mobilethemeTwo.interfaces.IThemeSpecific"" />
+    
+  <include package="plone.browserlayer" />
 
   
 </configure>
