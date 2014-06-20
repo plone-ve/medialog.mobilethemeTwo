@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="medialog.mobilethemeTwo"
+    interface="medialog.mobilethemeTwo.browser.interfaces.IThemeSpecific"
+    />
+</layers>

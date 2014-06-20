@@ -31,6 +31,9 @@ setup(name='medialog.mobilethemeTwo',
       install_requires=[
           'setuptools',
           'ftw.mobilenavigation',
+          'z3c.jbot',
+          'plone.browserlayer',
+
           # -*- Extra requirements: -*-
       ],
       entry_points="""
