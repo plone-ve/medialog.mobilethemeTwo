@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <layers>
-    <layer name="MobileThemeTwo"
-    interface="medialog.mobilethemeTwo.interfaces.IMobileThemeTwo" />
+    <layer name="medialog.mobilethemeTwo"
+    interface="medialog.mobilethemeTwo.interfaces.IThemeSpecific" />
 </layers>
