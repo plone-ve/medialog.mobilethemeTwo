@@ -14,6 +14,9 @@ medialog.mobilethemeTwo.egg-info/top_level.txt
 medialog/mobilethemeTwo/.DS_Store
 medialog/mobilethemeTwo/__init__.py
 medialog/mobilethemeTwo/configure.zcml
+medialog/mobilethemeTwo/interfaces.py
+medialog/mobilethemeTwo/profiles/.DS_Store
+medialog/mobilethemeTwo/profiles/default/browserlayer.xml
 medialog/mobilethemeTwo/profiles/default/metadata.xml
 medialog/mobilethemeTwo/profiles/default/theme.xml
 medialog/mobilethemeTwo/static/.DS_Store
