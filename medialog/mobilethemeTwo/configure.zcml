@@ -22,6 +22,6 @@
   
   <browser:jbot
     directory="static/jbot-templates"
-    layer=".interfaces.IMobileThemeTwo" />
+    layer="medialog.mobilethemeTwo.interfaces.IMobileThemeTwo" />
     
 </configure>
