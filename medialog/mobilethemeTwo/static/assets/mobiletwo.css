@@ -1,6 +1,7 @@
 /* @override 
 	http://127.0.0.1:8080/mytheme/events/aggregator/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css
 	http://localhost:8080/Plone/front-page/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css
+	http://localhost:8080/Plone/++theme++medialog.mobilethemeTwo/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css
 */
 
 @import url(http:/fonts.googleapis.com/css?family=Source+Sans+Pro);
@@ -51,7 +52,6 @@ body {
 }
 
 div.contakt-info,
-div#content,
 div.container {
 	padding-left: 1em;
 	padding-right: 1em;
@@ -569,10 +569,16 @@ ul.small a {
 	-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.3);
 }
 
-div#content {
+.outer-content {
+	clear:  both;;
 	border-top:  1px solid #DDD;
 	border-bottom:  1px solid #DDD;
-	min-width: 90%;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+div#content {
+	width: 100%;
 }
 
 #content-core {
