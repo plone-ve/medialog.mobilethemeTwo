@@ -19,5 +19,6 @@
 
   <plone:static type="theme" directory="static" />
  
+ 
   
 </configure>

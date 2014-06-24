@@ -32,7 +32,8 @@ setup(name='medialog.mobilethemeTwo',
           'setuptools',
           'ftw.mobilenavigation',
           'z3c.jbot',
-          'plone.app.themingplugins'
+          'plone.app.themingplugins',
+          'zettwerk.mobiletheming',
 
           # -*- Extra requirements: -*-
       ],

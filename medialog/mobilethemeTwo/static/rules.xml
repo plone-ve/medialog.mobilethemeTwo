@@ -36,8 +36,6 @@
 
 	<!-- Pull in Plone JS -->
 	<after theme-children="/html/head" content="/html/head/script" />
- 
- 
     <!-- Personal tools, remove if you dont edit on mobile -->
     <replace css:content="#portal-personaltools" css:theme="#portal-personaltools" />
         
