@@ -1,4 +1,7 @@
-/* @override http://127.0.0.1:8080/mytheme/events/aggregator/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css */
+/* @override 
+	http://127.0.0.1:8080/mytheme/events/aggregator/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css
+	http://localhost:8080/Plone/front-page/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css
+*/
 
 @import url(http:/fonts.googleapis.com/css?family=Source+Sans+Pro);
 
@@ -56,6 +59,12 @@ div.container {
 	float: left;
 	clear: both;
     display: block;
+}
+div.container{
+	clear:  both;
+	border-top:  1px solid #565656;
+	padding-top: 10px;
+	padding-bottom:  1em;
 }
 
 a {
@@ -434,7 +443,7 @@ body {
 	padding-top: 12px	font-size: 100%;
 }
 
-#portal-heaer,#portal-footer {
+#portal-header,#portal-footer {
 	font-size: 0.8em;
 }
 
@@ -449,6 +458,13 @@ body {
 
 #portal-footer p:last-of-type {
 	margin-bottom: 0;
+}
+
+
+.footer {
+	clear:  both;
+	border-bottom:  1px solid #565656;
+	border-top:  1px solid #565656;
 }
 
 .menu {
@@ -538,12 +554,6 @@ ul.small a {
 	font-weight: normal;
 }
 
-.separator {
-	margin: 15px 0;
-	opacity: 0.1;
-	border-width: 1px;
-	border-bottom: none;
-}
 
 .header+.separator {
 	margin-top: 0;
@@ -552,7 +562,7 @@ ul.small a {
 #content-core figure {
 	width: 100%;
 	margin: 0 auto 20px auto;
-	max-width: 480px;
+	max-width: 100%;
 	position: relative;
 	box-shadow: 0 0 4px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0 0 4px rgba(0,0,0,0.3);
@@ -562,7 +572,7 @@ ul.small a {
 div#content {
 	border-top:  1px solid #DDD;
 	border-bottom:  1px solid #DDD;
-	min-width: 90%;
+	width: 100%;
 }
 
 #content-core {
