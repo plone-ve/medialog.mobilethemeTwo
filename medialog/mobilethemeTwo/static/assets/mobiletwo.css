@@ -572,7 +572,7 @@ ul.small a {
 div#content {
 	border-top:  1px solid #DDD;
 	border-bottom:  1px solid #DDD;
-	width: 100%;
+	min-width: 90%;
 }
 
 #content-core {
@@ -602,24 +602,24 @@ div#content {
 	box-sizing: border-box;
 }
 
+
 img.newsImage {
 	margin: 0.3em 0 0.5em 1em;
 	float: right;
 }
+div.tileItem {
+	margin: 1em 0;
+	border-bottom:  3px dotted #DDD;
 
+}
+.mobiletileImage,
 .mobilenewsImage {
 	margin-top:  1em;
 	margin-bottom: 1em;
 	width: 100%;
 }
 
-
-a.more {
-	font-size: 0.8em;
-	text-decoration: underline;
-	color: #006F9A
-}
-
+ 
 .social {
 	margin: 10px 0 20px 0;
 	text-align: center
