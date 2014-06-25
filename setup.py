@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1'
+version = '0.2'
 
 long_description = (
     open('README.txt').read()
@@ -21,7 +21,7 @@ setup(name='medialog.mobilethemeTwo',
         ],
       keywords='mobiletheming plone zetterk',
       author='Espen Moe-Nilssen',
-      author_email='',
+      author_email='espen@medialog.no',
       url='http://github.com/espenmn/medialog.mobilethemeTwo',
       license='gpl',
       packages=find_packages(),
