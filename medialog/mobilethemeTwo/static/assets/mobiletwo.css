@@ -6,11 +6,16 @@
 
 @import url(http:/fonts.googleapis.com/css?family=Source+Sans+Pro);
 
+#parent-fieldname-description
+#content-core{
+ clear:both;   
+}
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: normal;
 	color: #333;
 }
+
 
 h1,h2,h3,h4,h5,h6,figcaption {
 	text-transform: capitalize;
@@ -112,6 +117,10 @@ h5 {
 h6 {
 	font-size: 1.2em;
 	margin: 0 0 1.3em 0;
+}
+
+#parent-fieldname-description {
+    margin-bottom: 1em;
 }
 
 abbr[title] {
@@ -642,8 +651,30 @@ div.tileItem {
 	opacity: 1;
 }
 
-
 /* Slider */
+#slider li {
+ position: relative; 
+ list-style-type: none;
+    list-style-image: none;
+    height: 0;
+    opacity:  0;
+}
+
+#slider li.crossfade-current {
+ list-style-type: none;
+    list-style-image: none;
+    height: auto;;
+    z-index: 999;
+    opacity:  1;
+}
+#slider  ul,
+#slider li,
+#slider  {
+    max-width: 100%;
+    list-style-type: none;
+	list-style-image: none;
+	padding: 0;
+}
 
 .slider {
 	position: relative;
@@ -681,6 +712,7 @@ div.tileItem {
 	max-width: 100%;
 	border: 0;
 }
+
 
 div#ajax-spinner {
 	display: none !important;
