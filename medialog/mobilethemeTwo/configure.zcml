@@ -19,6 +19,12 @@
 
   <plone:static type="theme" directory="static" />
  
- 
+  <include package="z3c.jbot" file="meta.zcml" />
+  
+  <browser:jbot
+    directory="static/overrides"
+    layer="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoLayer" />
+    
+    
   
 </configure>
