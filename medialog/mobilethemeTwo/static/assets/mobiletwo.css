@@ -664,7 +664,7 @@ div.tileItem {
  list-style-type: none;
     list-style-image: none;
     height: auto;;
-    z-index: 999;
+    z-index: 2;
     opacity:  1;
 }
 #slider  ul,
