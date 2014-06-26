@@ -448,7 +448,8 @@ blockquote {
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	border-top: 2px solid #2d2d2d;
-	padding-top: 12px	font-size: 100%;
+	padding-top: 12px;	
+	font-size: 100%;
 }
 
 #portal-header,#portal-footer {
@@ -712,6 +713,10 @@ div.tileItem {
 	border: 0;
 }
 
+
+.googleMapPane {
+height: 400px;
+}
 
 div#ajax-spinner {
 	display: none !important;
