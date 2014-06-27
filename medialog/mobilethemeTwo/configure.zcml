@@ -25,6 +25,16 @@
     directory="static/overrides"
     layer="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoLayer" />
     
+  
+  <browser:page
+    for="*"
+    name="scrape"
+    class=".views.Scrape"
+    template="scrape.pt"
+    permission="zope2.View"
+  />
+  
+  
     
   
 </configure>

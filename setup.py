@@ -34,6 +34,8 @@ setup(name='medialog.mobilethemeTwo',
           'z3c.jbot',
           'plone.app.themingplugins',
           'zettwerk.mobiletheming',
+          'cssselect',
+          'requests'
 
           # -*- Extra requirements: -*-
       ],
