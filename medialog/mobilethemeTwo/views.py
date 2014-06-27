@@ -20,6 +20,8 @@ class Scrape(BrowserView):
     def scraped(self):
         r = requests.get('https://www.bergen.kommune.no/omkommunen/avdelinger/bergenhus-og-arstad-kulturkontor/9353')
         tree = lxml.html.fromstring(r.text)
+        
+        tree.make_links_absolute('https://www.bergen.kommune.no', resolve_base_href=True)
 
         #the parsed DOM Tree
         lxml.html.tostring(tree)
