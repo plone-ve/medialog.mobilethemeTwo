@@ -15,32 +15,39 @@ import requests
 class Scrape(BrowserView):
     """   lxml    """
 
+    def repl(html, link):
+        if link.startswith('https://www.bergen.kommune.no/omkommunen'):
+            link = 'http://localhost:8080/Plone/scrape?url=' + link 
+            return link
+        if link.startswith('/'):
+            link = 'https://www.bergen.kommune.no' + link 
+        return link
         
     @property
-    def scraped(self):
-        r = requests.get('https://www.bergen.kommune.no/omkommunen/avdelinger/bergenhus-og-arstad-kulturkontor/9353')
+    def scraped(self, selector=None, url=None):
+        import pdb; pdb.set_trace()
+        if url==None:
+            url='https://www.bergen.kommune.no/omkommunen/avdelinger/bergenhus-og-arstad-kulturkontor/9353/9356'
+        if selector==None:
+            selector = '#rg7726'
+        r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
         
         tree.make_links_absolute('https://www.bergen.kommune.no', resolve_base_href=True)
-
+        tree.rewrite_links(self.repl)
+        
         #the parsed DOM Tree
         lxml.html.tostring(tree)
 
         # construct a CSS Selector
-        sel = CSSSelector('#rg7726')
+        sel = CSSSelector(selector)
         
         # Apply the selector to the DOM tree.
         results = sel(tree)
         
         # the HTML for the first result.
         match = results[0]
+        
         return lxml.html.tostring(match)
 
-        # get the href attribute of the first result
-        #print match.get('href')
-
-        # print the text of the first result.
-        #print match.text
-
-        # get the text out of all the results
-        #return [result.text for result in results]
+        
