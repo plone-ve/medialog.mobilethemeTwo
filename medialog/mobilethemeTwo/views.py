@@ -26,10 +26,13 @@ class Scrape(BrowserView):
         
     @property
     def scraped(self, url=None):
-        url      = self.request.url 
-        
-        if str(url)=='':
-            url='https://www.bergen.kommune.no/omkommunen/avdelinger/bergenhus-og-arstad-kulturkontor/9353/9356'
+        try:
+            if self.request.url!=None:
+                url      = self.request.url 
+        finally:
+            return "Error No URL included"
+            
+        #import pdb; pdb.set_trace()
         selector = '#rg7726'
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
