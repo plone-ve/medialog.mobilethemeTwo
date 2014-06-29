@@ -21,19 +21,20 @@ class Scrape(BrowserView):
             return link
         if link.startswith('/'):
             link = 'https://www.bergen.kommune.no' + link 
+            return link
         return link
         
     @property
-    def scraped(self, selector=None, url=None):
-        import pdb; pdb.set_trace()
-        if url==None:
+    def scraped(self, url=None):
+        url      = self.request.url 
+        
+        if str(url)=='':
             url='https://www.bergen.kommune.no/omkommunen/avdelinger/bergenhus-og-arstad-kulturkontor/9353/9356'
-        if selector==None:
-            selector = '#rg7726'
+        selector = '#rg7726'
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
         
-        tree.make_links_absolute('https://www.bergen.kommune.no', resolve_base_href=True)
+        tree.make_links_absolute(base_url='https://www.bergen.kommune.no', resolve_base_href=True)
         tree.rewrite_links(self.repl)
         
         #the parsed DOM Tree
@@ -47,7 +48,6 @@ class Scrape(BrowserView):
         
         # the HTML for the first result.
         match = results[0]
-        
         return lxml.html.tostring(match)
 
         
