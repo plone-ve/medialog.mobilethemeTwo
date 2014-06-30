@@ -231,8 +231,13 @@ img {
 	height: auto;
 }
 
-svg:not(:root) {
-	overflow: hidden;
+.relatedImage img {
+	width: 100%;
+	
+}
+.relatedImage .imageset,
+.printer_friend {
+	display: none;
 }
 
 figure {

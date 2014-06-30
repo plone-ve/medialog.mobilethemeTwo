@@ -23,8 +23,8 @@ class Scrape(BrowserView):
         root_url = api.portal.get().absolute_url()
 
         if (not (link.startswith('http'))):
-            link = scrape_external_base_url + link
-        if link.endswith('.jpg') or link.endswith('.png') or link.endswith('.gif') or link.endswith('.jpeg') or link.endswith('.pdf'):
+            link = scrape_external_base_url + '/' + link
+        if link.endswith('.jpg') or link.endswith('.png') or link.endswith('.gif') or link.endswith('.jpeg') or link.endswith('.jpeg') or link.endswith('.pdf'):
             return link
         link =   root_url + '/scrape?url=' + link
         
@@ -61,5 +61,5 @@ class Scrape(BrowserView):
             match.rewrite_links(self.repl)
         
             return lxml.html.tostring(match)
-        return "Content can not be shown"
-        
+        #return "Content can not be shown"
+        return lxml.html.tostring(tree)
