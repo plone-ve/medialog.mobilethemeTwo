@@ -30,22 +30,22 @@ class IMobilethemeTwoSettings(form.Schema):
                  ],
     )
                   
-    scrape_base_url = schema.TextLine(
+    scrape_base_url = schema.ASCIILine(
                  title=_(u"scrape_base_url", default=u"Base URL for external site"),
                  description=_(u"help_scrape_base_url",
-                 default=u"")
+                 default="")
     )
 
-    scrape_url = schema.TextLine(
+    scrape_url = schema.ASCIILine(
                  title=_(u"scrape_url", default=u"URL that should be redirected"),
                  description=_(u"help_scrape_url",
-                 default=u"URL that will be redirected to http;//yoursite/scrape?url=originalUrL")
+                 default="")
     )
 
-    scrape_selector = schema.TextLine(
+    scrape_selector = schema.ASCIILine(
                              title=_(u"scrape_selector", default=u"Id or class to filter external content on"),
                              description=_(u"help_scrape_selector",
-                                           default=u"")
+                            default="")
                              )
 
 

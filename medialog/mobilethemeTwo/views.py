@@ -1,4 +1,4 @@
-    # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import logging
 from Acquisition import aq_inner
@@ -15,12 +15,9 @@ import requests
 
 class Scrape(BrowserView):
     """   lxml    """
-
+    
     
     def repl(html, link):
-        context = self.context.aq_inner
-        portal_state = getMultiAdapter((context, self.request), name=u'plone_portal_state')
-        root_url = portal_state.portal_url()
 
         settings = getUtility(IRegistry).forInterface(IMobilethemeTwoSettings)
         selector = settings.scrape_selector
@@ -28,7 +25,7 @@ class Scrape(BrowserView):
         scrape_url = settings.scrape_url
 
         if link.startswith(scrape_external_base_url):
-            link = self.root_url + '/scrape?url=' + link
+            link =   'scrape?url=' + link
             return link
         if link.startswith('/'):
             link = scrape_url + link
@@ -36,17 +33,16 @@ class Scrape(BrowserView):
         return link
         
     @property
-    def scraped(self, url=None):
-        try:
-            if self.request.url!=None:
-                url      = self.request.url 
-        finally:
-            return "Error No URL included"
-
+    def scraped(self):
+        url = self.request.url
+        #finally:
+        #   return "Error No URL included"
+        
+        
         settings = getUtility(IRegistry).forInterface(IMobilethemeTwoSettings)
-        selector = settings.scrape_selector
-        scrape_external_base_url = settings.scrape_base_url
-
+        selector = str(settings.scrape_selector)
+        scrape_external_base_url = str(settings.scrape_base_url)
+        
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
         
