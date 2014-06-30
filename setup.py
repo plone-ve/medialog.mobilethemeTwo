@@ -36,6 +36,8 @@ setup(name='medialog.mobilethemeTwo',
           'zettwerk.mobiletheming',
           'cssselect',
           'requests',
+          'plone.api',
+          'plone.directives.form',
           'medialog.controlpanel',
 
           # -*- Extra requirements: -*-

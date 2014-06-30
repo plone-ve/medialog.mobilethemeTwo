@@ -43,10 +43,10 @@ class IMobilethemeTwoSettings(form.Schema):
     )
 
     scrape_selector = schema.ASCIILine(
-                             title=_(u"scrape_selector", default=u"Id or class to filter external content on"),
-                             description=_(u"help_scrape_selector",
-                            default="")
-                             )
+                 title=_(u"scrape_selector", default=u"Id or class to filter external content on"),
+                 description=_(u"help_scrape_selector",
+                 default="")
+    )
 
 
 alsoProvides(IMobilethemeTwoSettings, IMedialogControlpanelSettingsProvider)

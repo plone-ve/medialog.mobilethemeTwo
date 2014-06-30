@@ -21,9 +21,9 @@
 
   <include package="z3c.jbot" file="meta.zcml" />
   
-  <browser:jbot
+  <!--browser:jbot
     directory="static/overrides"
-    layer="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoLayer" />
+    layer="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoLayer" /-->
     
   
   <browser:page
