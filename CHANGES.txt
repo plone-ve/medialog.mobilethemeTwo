@@ -1,7 +1,18 @@
 Changelog
 =========
 
+0.3dev 
+-------------------
+- Added scrape view for external web pages.
+
+
+0.2dev 
+-------------------
+- first working version 
+
+
 0.1dev 
 -------------------
 
 - Package created 
+

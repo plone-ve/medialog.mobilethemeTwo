@@ -4,5 +4,6 @@
   <dependencies>
     <dependency>profile-plone.app.theming:default</dependency>
     <dependency>profile-ftw.mobilenavigation:default</dependency>
+    <dependency>profile-medialog.controlpanel:default</dependency>
   </dependencies>
 </metadata>

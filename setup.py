@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.2'
+version = '0.3'
 
 long_description = (
     open('README.txt').read()
@@ -35,7 +35,8 @@ setup(name='medialog.mobilethemeTwo',
           'plone.app.themingplugins',
           'zettwerk.mobiletheming',
           'cssselect',
-          'requests'
+          'requests',
+          'medialog.controlpanel',
 
           # -*- Extra requirements: -*-
       ],

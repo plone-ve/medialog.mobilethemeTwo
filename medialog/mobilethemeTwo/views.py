@@ -6,7 +6,8 @@ from zope.component import getMultiAdapter
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from zope.component import getUtility
-
+from plone.registry.interfaces import IRegistry
+from medialog.mobilethemeTwo import IMobilethemeTwoSettings
 import lxml.html
 from lxml.cssselect import CSSSelector
 
@@ -14,13 +15,21 @@ import requests
 
 class Scrape(BrowserView):
     """   lxml    """
-
+    context = self.context.aq_inner
+    portal_state = getMultiAdapter((context, self.request), name=u'plone_portal_state')
+    root_url = portal_state.portal_url()
+    
     def repl(html, link):
-        if link.startswith('https://www.bergen.kommune.no/omkommunen'):
-            link = 'http://localhost:8080/Plone/scrape?url=' + link 
+        
+        settings = getUtility(IRegistry).forInterface(IMobilethemeTwoSettings)
+        selector = settings.scrape_selector
+        scrape_external_base_url = settings.scrape_external_base_url
+
+        if link.startswith(scrape_external_base_url):
+            link = self.root_url + '/scrape?url=' + link
             return link
         if link.startswith('/'):
-            link = 'https://www.bergen.kommune.no' + link 
+            link = scrape_url + link
             return link
         return link
         
@@ -31,13 +40,15 @@ class Scrape(BrowserView):
                 url      = self.request.url 
         finally:
             return "Error No URL included"
-            
-        #import pdb; pdb.set_trace()
-        selector = '#rg7726'
+
+        settings = getUtility(IRegistry).forInterface(IMobilethemeTwoSettings)
+        selector = settings.scrape_selector
+        scrape_external_base_url = settings.scrape_external_base_url
+
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
         
-        tree.make_links_absolute(base_url='https://www.bergen.kommune.no', resolve_base_href=True)
+        tree.make_links_absolute(base_url=scrape_external_base_url, resolve_base_href=True)
         tree.rewrite_links(self.repl)
         
         #the parsed DOM Tree

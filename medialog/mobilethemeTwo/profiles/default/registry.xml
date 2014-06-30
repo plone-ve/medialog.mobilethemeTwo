@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<registry>
+    <records interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings">
+        <value key="scrape_external_base_url">https://www.bergen.kommune.no</value>
+        <value key="scrape_url">https://www.bergen.kommune.no/omkommunen</value>
+        <value key="scrape_selector">#rg7726</value>
+    </records>
+</registry>
