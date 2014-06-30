@@ -7,7 +7,7 @@ from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
-from medialog.mobilethemeTwo import IMobilethemeTwoSettings
+from medialog.mobilethemeTwo.interfaces import IMobilethemeTwoSettings
 import lxml.html
 from lxml.cssselect import CSSSelector
 
@@ -15,15 +15,17 @@ import requests
 
 class Scrape(BrowserView):
     """   lxml    """
-    context = self.context.aq_inner
-    portal_state = getMultiAdapter((context, self.request), name=u'plone_portal_state')
-    root_url = portal_state.portal_url()
+
     
     def repl(html, link):
-        
+        context = self.context.aq_inner
+        portal_state = getMultiAdapter((context, self.request), name=u'plone_portal_state')
+        root_url = portal_state.portal_url()
+
         settings = getUtility(IRegistry).forInterface(IMobilethemeTwoSettings)
         selector = settings.scrape_selector
-        scrape_external_base_url = settings.scrape_external_base_url
+        scrape_external_base_url = settings.scrape_base_url
+        scrape_url = settings.scrape_url
 
         if link.startswith(scrape_external_base_url):
             link = self.root_url + '/scrape?url=' + link
@@ -43,7 +45,7 @@ class Scrape(BrowserView):
 
         settings = getUtility(IRegistry).forInterface(IMobilethemeTwoSettings)
         selector = settings.scrape_selector
-        scrape_external_base_url = settings.scrape_external_base_url
+        scrape_external_base_url = settings.scrape_base_url
 
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
