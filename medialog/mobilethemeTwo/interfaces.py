@@ -25,7 +25,8 @@ class IMobilethemeTwoSettings(form.Schema):
                  label=_(u'MobilethemeTwo settings'),
                  fields=[
                           'scrape_base_url',
-                          'scrape_url'
+                          'scrape_url',
+                          'scrape_selector' 
                  ],
     )
                   
