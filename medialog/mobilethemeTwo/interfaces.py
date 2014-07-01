@@ -30,13 +30,13 @@ class IMobilethemeTwoSettings(form.Schema):
                  ],
     )
                   
-    scrape_base_url = schema.ASCIILine(
+    scrape_base_url = schema.URI(
                  title=_(u"scrape_base_url", default=u"Base URL for external site"),
                  description=_(u"help_scrape_base_url",
                  default="")
     )
 
-    scrape_url = schema.ASCIILine(
+    scrape_url = schema.URI(
                  title=_(u"scrape_url", default=u"URL that should be redirected"),
                  description=_(u"help_scrape_url",
                  default="")

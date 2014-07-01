@@ -6,7 +6,8 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="medialog.mobilethemeTwo">
-
+    
+  <include file="behaviors.zcml" />
   <five:registerPackage package="." initialize=".initialize" />
   
   <genericsetup:registerProfile
