@@ -22,6 +22,8 @@ You probably want to use the theme like this:
 
 - go to the mobile theming control panel and choose which url that should have the mobile theme.
 
+- It is of course possible to enable the theme in diazo theme control panel and use it as a regular theme
+
 
 When you want to edit the theme, you should do this on the file system.
 If you duplicate it TTW, the overridden templates will not be used.
@@ -56,4 +58,13 @@ How to embed another webpage in your site
 - You probably want to add the view to the contenttype TTW
 
  
+The view
+========
 
+http://yoursite.com/scrape?url=http://plone.org/products/plone/features/
+
+
+Author
+======
+
+Espen Moe-Nilssen, Grieg Medialog AS

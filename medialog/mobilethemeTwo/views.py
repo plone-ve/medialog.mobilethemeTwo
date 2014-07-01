@@ -21,6 +21,9 @@ class Scrape(BrowserView):
         scrape_base_url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')
         root_url = api.portal.get().absolute_url()
         
+        #if link.startswidth('/'):
+        #    link = scrape_base_url + link
+        
         #open pages from other sites in its own window.
         if (not (link.startswith(scrape_base_url))):
             return link
@@ -29,9 +32,6 @@ class Scrape(BrowserView):
             return link
         #point other pages from same site to embedded view
         link =   root_url + '/scrape?url=' + link
-        if link.startswidth('/'):
-            link = scrape_base_url + link
-
         return link
         
     def scraped(self):
@@ -82,14 +82,16 @@ class ScrapeView(BrowserView):
         
         root_url = api.portal.get().absolute_url()
 
+        #if link.startswidth('/'):
+        #    link = scrape_base_url + link
+            
         if (not (link.startswith(scrape_base_url))):
             return link
         if link.endswith('.jpg') or link.endswith('.png') or link.endswith('.gif') or link.endswith('.js') or link.endswith('.jpeg') or link.endswith('.pdf'):
             return link
         if link.startswidth(scrape_base_url):
             link =   root_url + '/scrape?url=' + link
-        if link.startswidth('/'):
-            link = scrape_base_url + link
+
         
         return link
     
@@ -98,7 +100,7 @@ class ScrapeView(BrowserView):
         url=self.context.scrape_url
         selector = self.context.scrape_selector
         
-        #scrape_base_url = str(api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url'))
+        #scrape_base_url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')
          
         #get html from the requested url
         r = requests.get(url)
