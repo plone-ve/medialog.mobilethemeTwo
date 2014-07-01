@@ -4,6 +4,7 @@ Changelog
 0.3dev 
 -------------------
 - Added scrape view for external web pages.
+- Added Behavior for external content.
 
 
 0.2dev 

@@ -2,8 +2,8 @@
 
 <registry>
     <records interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings">
-        <value key="scrape_base_url">https://www.bergen.kommune.no</value>
-        <value key="scrape_url">https://www.bergen.kommune.no/omkommunen</value>
-        <value key="scrape_selector">#rg7726</value>
+        <value key="scrape_base_url">http://planet.plone.org</value>
+        <value key="scrape_url">https://planet.plone.org</value>
+        <value key="scrape_selector">#region-content</value>
     </records>
 </registry>
