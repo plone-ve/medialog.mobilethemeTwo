@@ -13,7 +13,7 @@
                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                       templateId template/getId;">
 
-            <table tal:replace="structure view/scraped" /> 
+            <div tal:replace="structure view/scraped" /> 
     </metal:block>
 </metal:content-core>
 

@@ -23,12 +23,12 @@ class IScrape(form.Schema):
            default='#content',
     )
     
-    scrape_base_url = schema.URI(
-         title = _("label_scrape_base_url", default=u"Base URL"),
-         description = _("help_scrape_base_url",
-         default="Base URL to external site"),
-          default='http://somesite.com',
-   )
+#    scrape_base_url = schema.URI(
+#         title = _("label_scrape_base_url", default=u"Base URL"),
+#         description = _("help_scrape_base_url",
+#         default="Base URL to external site"),
+#          default='http://somesite.com',
+#   )
     
 
 
