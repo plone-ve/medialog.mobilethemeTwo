@@ -47,7 +47,7 @@ How to embed another webpage in your site
 
 - go to control panel.
 
-- in the medialog.control panel, set «default settings for your embed views»
+- in the medialog.control panel, set *default settings for your embed views*
 
 - add a dexterity content type
 
