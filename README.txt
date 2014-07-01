@@ -11,6 +11,8 @@ These templates will not work if you duplicate the theme TTW (themingplugins don
 
 Nice Icons from IcoMoon is included (GPL or CC BY 3.0) license.
 
+.. image:: /screenshots_two.png
+
 
 Usage
 ======
@@ -68,3 +70,5 @@ Author
 ======
 
 Espen Moe-Nilssen, Grieg Medialog AS
+
+

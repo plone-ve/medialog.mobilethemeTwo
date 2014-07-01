@@ -657,7 +657,7 @@ div.tileItem {
 }
 
 /* Slider */
-#slider li {
+#my_slider li {
  position: relative; 
  list-style-type: none;
     list-style-image: none;
@@ -692,10 +692,10 @@ div.tileItem {
 	/* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;
 	/* Firefox, other Gecko */
-  box-sizing: border-box;
+  	box-sizing: border-box;
 }
 
-.slider li {
+.responsiveslider li {
 	position: absolute;
 	display: none;
 	width: 100%;
