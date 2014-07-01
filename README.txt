@@ -7,13 +7,11 @@ About the theme
 
 A theme intended for use with mobile theming control panel (zettwerk.mobiletheming).
 The theme uses plone.app.themingplugins to override templates just for this theme.
-These templates will not work if you duplicate the theme TTW (themingplugins don’t work for that) 
+These templates will not work if you duplicate the theme TTW (themingplugins do not work for that) 
 
 Nice Icons from IcoMoon is included (GPL or CC BY 3.0) license.
 
 .. image:: https://raw.githubusercontent.com/espenmn/medialog.mobilethemeTwo/master/screenshots_two.png
-
-.. image:: /screenshots_two.png
 
 
 
