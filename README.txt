@@ -11,8 +11,7 @@ These templates will not work if you duplicate the theme TTW (themingplugins don
 
 Nice Icons from IcoMoon is included (GPL or CC BY 3.0) license.
 
-.. image:: https://github.com/espenmn/medialog.mobilethemeTwo/screenshots_two.png
-
+.. image:: https://raw.githubusercontent.com/espenmn/medialog.mobilethemeTwo/master/screenshots_two.png
 
 
 Usage
