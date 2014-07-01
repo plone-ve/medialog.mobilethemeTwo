@@ -13,7 +13,7 @@ Nice Icons from IcoMoon is included (GPL or CC BY 3.0) license.
 
 .. image:: https://raw.githubusercontent.com/espenmn/medialog.mobilethemeTwo/master/screenshots_two.png
 
-.. image:: screenshots_two.png
+.. image:: /screenshots_two.png
 
 
 
