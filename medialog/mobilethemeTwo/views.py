@@ -88,7 +88,7 @@ class ScrapeView(BrowserView):
     
     def __call__(self):
     	root_url = api.portal.get().absolute_url()
-    	self.request.response.redirect(root_url + "/scrape?selector=" + self.context.scrape_selector + "&url=" + self.context.scrape_url + )
+    	self.request.response.redirect(root_url + "/scrape?selector=" + self.context.scrape_selector + "&url=" + self.context.scrape_url)
 
         
          
