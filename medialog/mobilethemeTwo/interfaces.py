@@ -24,9 +24,11 @@ class IMobilethemeTwoSettings(form.Schema):
         'mobilethemeTwo',
                  label=_(u'MobilethemeTwo settings'),
                  fields=[
-                          'scrape_base_url',
-                          'scrape_url',
-                          'scrape_selector' 
+                         'scrape_base_url',
+                         'scrape_url',
+                         'scrape_selector',
+                         'scrape_javascript',
+                         'scrape_style'
                  ],
     )
                   
@@ -48,5 +50,18 @@ class IMobilethemeTwoSettings(form.Schema):
                  default="")
     )
 
+    scrape_javascript = schema.Bool(
+                 title=_(u"scrape_javascript", default=u"Filter out javascript"),
+                 description=_(u"help_scrape_javascript",
+                  default="")
+    )
+                                
+
+
+    scrape_style = schema.Bool(
+                 title=_(u"scrape_style", default=u"Filter out CSS styles"),
+                 description=_(u"help_scrape_style",
+                  default="")
+    )
 
 alsoProvides(IMobilethemeTwoSettings, IMedialogControlpanelSettingsProvider)

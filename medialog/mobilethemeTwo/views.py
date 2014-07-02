@@ -22,6 +22,8 @@ class Scrape(BrowserView):
         selector = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_selector')
         scrape_base_url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')    
         url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url')
+        scrape_javascript = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript')
+        scrape_style = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_style')
         
         if hasattr(self.request, 'url'):
             url = self.request.url
@@ -37,9 +39,9 @@ class Scrape(BrowserView):
         #get html from the requested url
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
-              
+             
         #clean evil stuff
-        cleaner = Cleaner(javascript = True , style = True )
+        cleaner = Cleaner(javascript = scrape_javascript , style = scrape_style )
         cleaner(tree)
         
         #the parsed DOM Tree
