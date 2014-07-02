@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #import logging
-from Acquisition import aq_inner
+#from Acquisition import aq_inner
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 
@@ -17,7 +17,7 @@ from lxml.html.clean import Cleaner
 import requests
 
 class Scrape(BrowserView):
-    """   lxml    """
+    """   A View that uses lxml to embed external content    """
     
     def repl(html, link):
         selector = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_selector')
@@ -63,9 +63,13 @@ class Scrape(BrowserView):
         #the parsed DOM Tree
         lxml.html.tostring(tree)
 
+        #relink
+        tree.make_links_absolute(scrape_base_url, resolve_base_href=True)
+        tree.rewrite_links(self.repl)
         
         # construct a CSS Selector
         sel = CSSSelector(selector)
+        
         
         # Apply the selector to the DOM tree.
         results = sel(tree)
@@ -73,26 +77,22 @@ class Scrape(BrowserView):
         # the HTML for the first result.
         if results:
             match = results[0]
-            #relink
-            match.make_links_absolute(scrape_base_url, resolve_base_href=True)
-            match.rewrite_links(self.repl)
-        
             return lxml.html.tostring(match)
+
         #return "Content can not be filtered, we are returning whole page"
         return lxml.html.tostring(tree)
 
 
 class ScrapeView(BrowserView):
-    """   A View that uses lxml to embed external content    """
+    """   A Dexterity Content View that uses lxml to embed external content    """
     
     def repl(html, link):
         selector = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_selector')
         scrape_base_url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')
-        
         root_url = api.portal.get().absolute_url()
 
-        #if link.startswidth('/'):
-        #    link = scrape_base_url + link
+        if link.startswidth('/'):
+            link = scrape_base_url + link
             
         if (not (link.startswith(scrape_base_url))):
             return link
@@ -106,14 +106,15 @@ class ScrapeView(BrowserView):
     
     @property
     def scraped(self):
-        url=self.context.scrape_url
-        selector = self.context.scrape_selector
+        url = str(self.context.scrape_url)
+        selector = str(self.context.scrape_selector)
+        #parts = url.split('//', 1)
+        #scrape_base_url = str(parts[0]+'//'+parts[1].split('/', 1)[0])
         
-        #scrape_base_url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')
+        scrape_base_url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')
          
         #get html from the requested url
         r = requests.get(url)
- 
         tree = lxml.html.fromstring(r.text)
         
                 
@@ -124,25 +125,22 @@ class ScrapeView(BrowserView):
         #the parsed DOM Tree
         lxml.html.tostring(tree)
 
+        #relink
+        tree.make_links_absolute(scrape_base_url, resolve_base_href=True)
+        tree.rewrite_links(self.repl)
         
         # construct a CSS Selector
         sel = CSSSelector(selector)
         
+        
         # Apply the selector to the DOM tree.
         results = sel(tree)
-        
-        parts = url.split('//', 1)
-        scrape_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
         
         # the HTML for the first result.
         if results:
             match = results[0]
-            #clean evil stuff
-            #relink
-            match.make_links_absolute(scrape_base_url, resolve_base_href=True)
-            match.rewrite_links(self.repl)
-            
             return lxml.html.tostring(match)
-            
-        #return "Content can not be shown"
+
+        #return "Content can not be filtered, we are returning whole page"
         return lxml.html.tostring(tree)
+
