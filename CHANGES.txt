@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.4dev 
+-------------------
+- Added cleaning of html
+
+
+
 0.3dev 
 -------------------
 - Added scrape view for external web pages.

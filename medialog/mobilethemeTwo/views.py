@@ -10,6 +10,9 @@ from medialog.mobilethemeTwo.interfaces import IMobilethemeTwoSettings
 
 import lxml.html
 from lxml.cssselect import CSSSelector
+from lxml.html.clean import Cleaner
+
+
 
 import requests
 
@@ -52,9 +55,15 @@ class Scrape(BrowserView):
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
         
+                
+        #clean evil stuff
+        cleaner = Cleaner(javascript = True , style = True )
+        cleaner(tree)
+        
         #the parsed DOM Tree
         lxml.html.tostring(tree)
 
+        
         # construct a CSS Selector
         sel = CSSSelector(selector)
         
@@ -107,8 +116,14 @@ class ScrapeView(BrowserView):
  
         tree = lxml.html.fromstring(r.text)
         
+                
+        #clean evil stuff
+        cleaner = Cleaner(javascript = True , style = True )
+        cleaner(tree)
+        
         #the parsed DOM Tree
         lxml.html.tostring(tree)
+
         
         # construct a CSS Selector
         sel = CSSSelector(selector)
@@ -122,6 +137,7 @@ class ScrapeView(BrowserView):
         # the HTML for the first result.
         if results:
             match = results[0]
+            #clean evil stuff
             #relink
             match.make_links_absolute(scrape_base_url, resolve_base_href=True)
             match.rewrite_links(self.repl)
