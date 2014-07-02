@@ -13,12 +13,4 @@
         for="plone.dexterity.interfaces.IDexterityContent"
         />
    
-   <browser:page
-      for="plone.dexterity.interfaces.IDexterityContent"
-      name="scrape_view"
-      class=".views.ScrapeView"
-      template="scrape_view.pt"
-      permission="zope.Public"
-      />
-   
 </configure>

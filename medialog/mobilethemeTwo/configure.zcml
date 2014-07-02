@@ -35,7 +35,13 @@
     permission="zope2.View"
   />
   
-  
+  <browser:page
+      for="plone.dexterity.interfaces.IDexterityContent"
+      name="scrape_view"
+      class=".views.ScrapeView"
+      permission="zope.Public"
+  />
+   
     
   
 </configure>
