@@ -1,10 +1,15 @@
 Changelog
 =========
 
+0.5dev 
+-------------------
+- Added settings for cleaning 
+- redirect scrape_view to scrape
+
+
 0.4dev 
 -------------------
 - Added cleaning of html
-
 
 
 0.3dev 

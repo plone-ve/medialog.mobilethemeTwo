@@ -25,16 +25,17 @@ class Scrape(BrowserView):
         scrape_javascript = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript')
         scrape_style = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_style')
         
-        if hasattr(self.request, 'url'):
-            url = self.request.url
-        
-        if hasattr(self.request, 'selector'):
-            parts = url.split('//', 1)
-            scrape_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
-        
         parts = url.split('//', 1)
         scrape_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
         
+         #get settings from scrape_view if it was redirected
+	        
+        if hasattr(self.request, 'selector'):
+            selector = self.request.selector
+
+        if hasattr(self.request, 'url'):
+            url = self.request.url
+
         
         #get html from the requested url
         r = requests.get(url)
@@ -87,7 +88,7 @@ class ScrapeView(BrowserView):
     
     def __call__(self):
     	root_url = api.portal.get().absolute_url()
-    	self.request.response.redirect(root_url + "/scrape?url=" + self.context.scrape_url + "&selector=" + self.context.scrape_selector)
+    	self.request.response.redirect(root_url + "/scrape?selector=" + self.context.scrape_selector + "&url=" + self.context.scrape_url + )
 
         
          
