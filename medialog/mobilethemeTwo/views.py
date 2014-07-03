@@ -9,6 +9,7 @@ from plone import api
 from medialog.mobilethemeTwo.interfaces import IMobilethemeTwoSettings
 
 import lxml.html
+import urllib 
 from lxml.cssselect import CSSSelector
 from lxml.html.clean import Cleaner
 
@@ -19,24 +20,25 @@ class Scrape(BrowserView):
     
     def scraped(self):
         #get settings from control panel
-        selector = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_selector')
-        scrape_base_url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')    
-        url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url')
+        scrape_base_url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')
         scrape_javascript = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript')
         scrape_style = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_style')
         
-        parts = url.split('//', 1)
-        scrape_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
-        
-         #get settings from scrape_view if it was redirected
-	        
+        #get settings from scrape_view if it was redirected
+        selector = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_selector')
+        url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url')
+            
         if hasattr(self.request, 'selector'):
-            selector = self.request.selector
+            selector = str(urllib.unquote((self.request.selector).decode('utf8')))
 
         if hasattr(self.request, 'url'):
-            url = self.request.url
-
+            url = str(urllib.unquote((self.request.url).decode('utf8')))
         
+        import pdb; pdb.set_trace()
+        #get base url, we will use this to decide if the url should opened as a redirect view
+        parts = url.split('//', 1)
+        scrape_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
+
         #get html from the requested url
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
@@ -54,7 +56,6 @@ class Scrape(BrowserView):
         
         # construct a CSS Selector
         sel = CSSSelector(selector)
-        
         
         # Apply the selector to the DOM tree.
         results = sel(tree)
@@ -88,7 +89,12 @@ class ScrapeView(BrowserView):
     
     def __call__(self):
     	root_url = api.portal.get().absolute_url()
-    	self.request.response.redirect(root_url + "/scrape?selector=" + self.context.scrape_selector + "&url=" + self.context.scrape_url)
-
-        
-         
+    	import pdb; pdb.set_trace()
+    	selector  = str(self.context.scrape_selector)
+    	url = str(self.context.scrape_url)
+    	
+    	selector = urllib.quote((self.request.selector).encode('utf8')))
+    	url = urllib.quote((self.request.url).encode('utf8')))
+    	 
+    	self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
+    	
