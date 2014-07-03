@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.5.3dev 
+-------------------
+- Make choice for sites to embed a tuple
+
+
 0.5.2dev 
 -------------------
 - Fix for URL encoding

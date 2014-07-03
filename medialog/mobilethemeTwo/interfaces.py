@@ -32,11 +32,13 @@ class IMobilethemeTwoSettings(form.Schema):
                  ],
     )
                   
-    scrape_base_url = schema.URI(
-                 title=_(u"scrape_base_url", default=u"Base URL for external site"),
-                 description=_(u"help_scrape_base_url",
-                 default="")
-    )
+    scrape_base_url = schema.Tuple(
+                             title=_('scrape_base_view', 'Embed these URLs'),
+                             description=_('scrape_base_url',
+                                           u'Hostnames to open in embed view'),
+                             value_type=schema.URI(),
+                             default=(u'http://plone.org',),
+                             )
 
     scrape_url = schema.URI(
                  title=_(u"scrape_url", default=u"Default URL if none is given"),
