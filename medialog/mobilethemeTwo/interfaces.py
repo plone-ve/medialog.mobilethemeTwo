@@ -33,12 +33,12 @@ class IMobilethemeTwoSettings(form.Schema):
     )
                   
     scrape_base_url = schema.Tuple(
-                             title=_('scrape_base_view', 'Embed these URLs'),
+                             title=_('scrape_base_view', 'Embed these URLs (remember www if it is needed)'),
                              description=_('scrape_base_url',
                                            u'Hostnames to open in embed view'),
                              value_type=schema.URI(),
                              default=(u'http://plone.org',),
-                             )
+    )
 
     scrape_url = schema.URI(
                  title=_(u"scrape_url", default=u"Default URL if none is given"),
@@ -46,12 +46,14 @@ class IMobilethemeTwoSettings(form.Schema):
                  default="")
     )
 
-    scrape_selector = schema.ASCIILine(
-                 title=_(u"scrape_selector", default=u"Id or class to filter external content on"),
-                 description=_(u"help_scrape_selector",
-                 default="")
+                  
+    scrape_selector = schema.List(
+                             title=_('scrape_selector', 'IDs or classes to filer on'),
+                             description=_('scrape_selector',
+                                           u'Add in same order as base urls.'),
+                            value_type=schema.ASCIILine()
     )
-
+    
     scrape_javascript = schema.Bool(
                  title=_(u"scrape_javascript", default=u"Security: Filter out javascript"),
                  description=_(u"help_scrape_javascript",
