@@ -63,7 +63,7 @@ class Scrape(BrowserView):
              selectors = str(api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_selector'))
              if url in scrape_base_url:
                  count = scrape_base_url.index(url)
-                 sselector = selectors.split()[count]
+                 selector = selectors.split()[count]
                      
         sel = CSSSelector(selector)
                 

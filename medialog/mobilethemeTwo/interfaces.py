@@ -47,11 +47,10 @@ class IMobilethemeTwoSettings(form.Schema):
     )
 
                   
-    scrape_selector = schema.List(
+    scrape_selector = schema.TextLine(
                              title=_('scrape_selector', 'IDs or classes to filer on'),
                              description=_('scrape_selector',
                                            u'Add in same order as base urls.'),
-                            value_type=schema.ASCIILine()
     )
     
     scrape_javascript = schema.Bool(
