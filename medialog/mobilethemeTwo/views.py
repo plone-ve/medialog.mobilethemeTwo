@@ -34,7 +34,6 @@ class Scrape(BrowserView):
         if hasattr(self.request, 'url'):
             url = str(urllib.unquote((self.request.url).decode('utf8')))
         
-        import pdb; pdb.set_trace()
         #get base url, we will use this to decide if the url should opened as a redirect view
         parts = url.split('//', 1)
         scrape_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
@@ -89,12 +88,11 @@ class ScrapeView(BrowserView):
     
     def __call__(self):
     	root_url = api.portal.get().absolute_url()
-    	import pdb; pdb.set_trace()
     	selector  = str(self.context.scrape_selector)
     	url = str(self.context.scrape_url)
     	
-    	selector = urllib.quote((self.request.selector).encode('utf8')))
-    	url = urllib.quote((self.request.url).encode('utf8')))
+    	selector = urllib.quote(selector).decode('utf8') 
+    	url =      urllib.quote(url).decode('utf8')
     	 
     	self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
     	
