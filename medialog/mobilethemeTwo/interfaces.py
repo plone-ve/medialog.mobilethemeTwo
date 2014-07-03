@@ -39,7 +39,7 @@ class IMobilethemeTwoSettings(form.Schema):
     )
 
     scrape_url = schema.URI(
-                 title=_(u"scrape_url", default=u"URL that should be redirected"),
+                 title=_(u"scrape_url", default=u"Default URL if none is given"),
                  description=_(u"help_scrape_url",
                  default="")
     )
@@ -51,7 +51,7 @@ class IMobilethemeTwoSettings(form.Schema):
     )
 
     scrape_javascript = schema.Bool(
-                 title=_(u"scrape_javascript", default=u"Filter out javascript"),
+                 title=_(u"scrape_javascript", default=u"Security: Filter out javascript"),
                  description=_(u"help_scrape_javascript",
                   default="")
     )
@@ -59,7 +59,7 @@ class IMobilethemeTwoSettings(form.Schema):
 
 
     scrape_style = schema.Bool(
-                 title=_(u"scrape_style", default=u"Filter out CSS styles"),
+                 title=_(u"scrape_style", default=u"Security: Filter out CSS styles"),
                  description=_(u"help_scrape_style",
                   default="")
     )
