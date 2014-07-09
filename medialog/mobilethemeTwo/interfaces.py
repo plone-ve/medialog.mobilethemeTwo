@@ -6,6 +6,8 @@ from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
 from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvider
 
+from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('medialog.mobilethemeTwo')
@@ -14,7 +16,19 @@ _ = MessageFactory('medialog.mobilethemeTwo')
 class IMobilethemeTwoLayer(Interface):
     """A layer specific to medialog.mobilethemeTwo
         """
-
+#url class/id pair
+class IUrlPair(form.Schema):
+    scrape_base_url = schema.URI(
+        title=_(u'scrape_base_url'), 
+        description=_(u'help_base_scrape_url'),
+        default='http://plone.org',
+    )
+    scrape_selector = schema.ASCIILine(
+        title=_(u'scrape_selector'),
+        description=_(u'scrape_selector',
+        'This has to correspond to the url.'),
+        default='#content',
+    )
 
 class IMobilethemeTwoSettings(form.Schema):
     """Adds settings to medialog.controlpanel
@@ -22,37 +36,29 @@ class IMobilethemeTwoSettings(form.Schema):
     
     form.fieldset(
         'mobilethemeTwo',
-                 label=_(u'MobilethemeTwo settings'),
-                 fields=[
-                         'scrape_base_url',
-                         'scrape_url',
-                         'scrape_selector',
-                         'scrape_javascript',
-                         'scrape_style'
-                 ],
-    )
-                  
-    scrape_base_url = schema.Tuple(
-                             title=_('scrape_base_view', 'Embed these URLs (remember www if it is needed)'),
-                             description=_('scrape_base_url',
-                                           u'Hostnames to open in embed view'),
-                             value_type=schema.URI(),
-                             default=(u'http://plone.org',),
-    )
-
-    scrape_url = schema.URI(
-                 title=_(u"scrape_url", default=u"Default URL if none is given"),
-                 description=_(u"help_scrape_url",
-                 default="")
-    )
-
-                  
-    scrape_selector = schema.TextLine(
-                             title=_('scrape_selector', 'IDs or classes to filer on'),
-                             description=_('scrape_selector',
-                                           u'Add in same order as base urls.'),
+        label=_(u'MobilethemeTwo settings'),
+            fields=[
+                    'scrape_url',
+                    'scrape_url_pair',
+                    'scrape_javascript',
+                    'scrape_style'
+            ],
     )
     
+    form.widget(scrape_url_pair=DataGridFieldFactory)
+    scrape_url_pair = schema.List(
+        title = _(u"Url Pair Fields"),
+        description = _(u"The combination of urls and css class / id"),
+        value_type=DictRow(title=_(u"Field"), schema=IUrlPair),
+                     required=True,
+    )
+                  
+    scrape_url = schema.URI(
+                title=_(u'scrape_url', 'default url'),
+                description=_('scrape_url',
+                            u'Base url if none is given'),
+    )
+                      
     scrape_javascript = schema.Bool(
                  title=_(u"scrape_javascript", default=u"Security: Filter out javascript"),
                  description=_(u"help_scrape_javascript",
