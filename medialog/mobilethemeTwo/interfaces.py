@@ -6,10 +6,10 @@ from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
 from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvider
 
-from collective.z3cform.datagridfield import DataGridFieldFactory 
+#from collective.z3cform.datagridfield import DataGridFieldFactory 
 from collective.z3cform.datagridfield.registry import DictRow
 
-from plone.autoform.directives import widget
+#from plone.autoform.directives import widget
 #from plone.supermodel import model
 #rnix uses model instead of form
 
@@ -23,16 +23,14 @@ class IMobilethemeTwoLayer(Interface):
         """
 #url class/id pair
 class IUrlPair(form.Schema):
-    scrape_base_url = schema.URI(
+    scrape_base_url = schema.TextLine(
         title=_(u'scrape_base_url', 'URL that will embed'), 
         description=_(u'help_base_scrape_url'),
-        default='http://plone.org',
     )
-    scrape_selector = schema.ASCIILine(
+    scrape_selector = schema.TextLine(
         title=_(u'scrape_selector', 'CSS selector to filter on'),
         description=_(u'scrape_selector',
         'This has to correspond to the url.'),
-        default='#content',
     )
 
 class IMobilethemeTwoSettings(form.Schema):
@@ -50,7 +48,7 @@ class IMobilethemeTwoSettings(form.Schema):
             ],
     )
     
-    form.widget(scrape_url_pair=DataGridFieldFactory)
+    #form.widget(scrape_url_pair=DataGridFieldFactory)
     scrape_url_pair = schema.List(
         title = _(u"Url Pair Fields"),
         description = _(u"The combination of urls and css class / id"),
