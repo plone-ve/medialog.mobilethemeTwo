@@ -10,7 +10,7 @@
       <description>URL to embed and corresponding css selectors for filtering</description>
       <title>URL selctor pairs</title>
     </field>
-    <value> </value>
+    <value></value>
   </record>
   
 	<record name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript" 
