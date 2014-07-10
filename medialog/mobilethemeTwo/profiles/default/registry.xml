@@ -1,18 +1,53 @@
 <?xml version="1.0"?>
 
 <registry>
-    <record field="scrape_url_pair" interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings"
-        name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url_pair">
-        <field type="plone.registry.field.List">
-         </field>
-        <value>
-            <element>{u'scrape_base_url': 'http', u'scrape_selector': '.content'}</element>
-        </value>
-    </record>
 
-    <records interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings">
-        <value key="scrape_base_url">http://planet.plone.org</value>
-                <value key="scrape_javascript">True</value>
-        <value key="scrape_style">True</value>
-    </records>
+ 
+    <record name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url_pair" 
+	  interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings" 
+	  field="scrape_url_pair">
+		<field type="plone.registry.field.List">
+		   <key_type type="plone.registry.field.ASCIILine"/>
+		  <title>URL selctor pairs</title>
+		  <value_type type="plone.registry.field.List">
+			<value_type type="plone.registry.field.ASCIILine"/>
+		  </value_type>
+		</field>
+		<value>
+		  
+		</value>
+	  </record>
+
+	<record name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript" 
+		interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings" 
+		field="scrape_javascript">
+    <field type="plone.registry.field.Bool">
+      <description>help_scrape_javascript</description>
+      <title>scrape_javascript</title>
+    </field>
+    <value>True</value>
+  </record>
+ 
+  <record name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_style"
+   interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings" 
+   field="scrape_style">
+    <field type="plone.registry.field.Bool">
+      <description>help_scrape_style</description>
+      <title>scrape_style</title>
+    </field>
+    <value>True</value>
+  </record>
+  
+  <record name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url" 
+  	interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings" 
+  	field="scrape_url">
+    <field type="plone.registry.field.URI">
+      <description>help_scrape_url</description>
+      <title>scrape_url</title>
+    </field>
+    <value>http://plone.org</value>
+  </record>
+      
+   
 </registry>
+ 

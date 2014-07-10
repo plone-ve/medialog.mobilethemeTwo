@@ -49,8 +49,8 @@ class IMobilethemeTwoSettings(form.Schema):
     scrape_url_pair = schema.List(
         title = _(u"Url Pair Fields"),
         description = _(u"The combination of urls and css class / id"),
-        value_type=DictRow(title=_(u"Field"), schema=IUrlPair),
-                     required=True,
+        value_type=DictRow(schema=IUrlPair),
+                     required=False,
     )
                   
     scrape_url = schema.URI(
