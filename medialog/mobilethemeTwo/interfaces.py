@@ -9,6 +9,10 @@ from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvid
 from collective.z3cform.datagridfield import DataGridFieldFactory 
 from collective.z3cform.datagridfield.registry import DictRow
 
+from plone.autoform.directives import widget
+#from plone.supermodel import model
+#rnix uses model instead of form
+
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('medialog.mobilethemeTwo')
