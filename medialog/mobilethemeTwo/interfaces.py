@@ -9,10 +9,6 @@ from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvid
 #from collective.z3cform.datagridfield import DataGridFieldFactory 
 from collective.z3cform.datagridfield.registry import DictRow
 
-#from plone.autoform.directives import widget
-#from plone.supermodel import model
-#rnix uses model instead of form
-
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('medialog.mobilethemeTwo')
@@ -21,16 +17,16 @@ _ = MessageFactory('medialog.mobilethemeTwo')
 class IMobilethemeTwoLayer(Interface):
     """A layer specific to medialog.mobilethemeTwo
         """
+
 #url class/id pair
 class IUrlPair(form.Schema):
-    scrape_base_url = schema.TextLine(
+    scrape_base_url = schema.Text(
         title=_(u'scrape_base_url', 'URL that will embed'), 
-        description=_(u'help_base_scrape_url'),
+        required=False
     )
-    scrape_selector = schema.TextLine(
+    scrape_selector = schema.Text(
         title=_(u'scrape_selector', 'CSS selector to filter on'),
-        description=_(u'scrape_selector',
-        'This has to correspond to the url.'),
+        required=False
     )
 
 class IMobilethemeTwoSettings(form.Schema):
@@ -52,7 +48,8 @@ class IMobilethemeTwoSettings(form.Schema):
     scrape_url_pair = schema.List(
         title = _(u"Url Pair Fields"),
         description = _(u"The combination of urls and css class / id"),
-        value_type=DictRow(schema=IUrlPair)
+        value_type=DictRow(schema=IUrlPair),
+        required=False
     )
                   
     scrape_url = schema.URI(
