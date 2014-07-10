@@ -3,21 +3,16 @@
 <registry>
 
  
-    <record name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url_pair" 
-	  interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings" 
-	  field="scrape_url_pair">
-		<field type="plone.registry.field.List">
-		   <key_type type="plone.registry.field.ASCIILine"/>
-		  <title>URL selctor pairs</title>
-		  <value_type type="plone.registry.field.List">
-			<value_type type="plone.registry.field.ASCIILine"/>
-		  </value_type>
-		</field>
-		<value>
-		  
-		</value>
-	  </record>
-
+  <record name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url_pair"
+      interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings"
+      field="scrape_url_pair">
+    <field type="plone.registry.field.List">
+      <description>URL to embed and corresponding css selectors for filtering</description>
+      <title>URL selctor pairs</title>
+    </field>
+    <value> </value>
+  </record>
+  
 	<record name="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript" 
 		interface="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings" 
 		field="scrape_javascript">

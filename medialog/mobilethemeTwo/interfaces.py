@@ -6,7 +6,8 @@ from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
 from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvider
 
-from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+from collective.z3cform.datagridfield import DataGridFieldFactory 
+from collective.z3cform.datagridfield.registry import DictRow
 
 from zope.i18nmessageid import MessageFactory
 
@@ -19,12 +20,12 @@ class IMobilethemeTwoLayer(Interface):
 #url class/id pair
 class IUrlPair(form.Schema):
     scrape_base_url = schema.URI(
-        title=_(u'scrape_base_url'), 
+        title=_(u'scrape_base_url', 'URL that will embed'), 
         description=_(u'help_base_scrape_url'),
         default='http://plone.org',
     )
     scrape_selector = schema.ASCIILine(
-        title=_(u'scrape_selector'),
+        title=_(u'scrape_selector', 'CSS selector to filter on'),
         description=_(u'scrape_selector',
         'This has to correspond to the url.'),
         default='#content',
@@ -45,7 +46,7 @@ class IMobilethemeTwoSettings(form.Schema):
             ],
     )
     
-    form.widget(scrape_url_pair=DataGridFieldFactory)
+    #form.widget(scrape_url_pair=DataGridFieldFactory)
     scrape_url_pair = schema.List(
         title = _(u"Url Pair Fields"),
         description = _(u"The combination of urls and css class / id"),
@@ -64,8 +65,6 @@ class IMobilethemeTwoSettings(form.Schema):
                  description=_(u"help_scrape_javascript",
                   default="")
     )
-                                
-
 
     scrape_style = schema.Bool(
                  title=_(u"scrape_style", default=u"Security: Filter out CSS styles"),
