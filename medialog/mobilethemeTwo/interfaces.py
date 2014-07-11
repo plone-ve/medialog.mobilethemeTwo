@@ -20,11 +20,11 @@ class IMobilethemeTwoLayer(Interface):
 
 #url class/id pair
 class IUrlPair(form.Schema):
-    scrape_base_url = schema.Text(
+    scrape_base_url = schema.ASCIILine(
         title=_(u'scrape_base_url', 'URL that will embed'), 
         required=False
     )
-    scrape_selector = schema.Text(
+    scrape_selector = schema.ASCIILine(
         title=_(u'scrape_selector', 'CSS selector to filter on'),
         required=False
     )
