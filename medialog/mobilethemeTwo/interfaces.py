@@ -46,15 +46,12 @@ class IMobilethemeTwoSettings(form.Schema):
     
     #form.widget(scrape_url_pair=DataGridFieldFactory)
     scrape_url_pair = schema.List(
-        title = "Url Pair Fields",
+        title = _(u"scrape_url_pair", default=u"URL selector pairs"),
         value_type=DictRow(schema=IUrlPair),
-        required=False
     )
                   
     scrape_url = schema.URI(
-                title='scrape_url', 'default url'),
-                description=_('scrape_url',
-                            u'Base url if none is given'),
+                title=_(u"scrape_url", default=u"Default URL"),
     )
                       
     scrape_javascript = schema.Bool(

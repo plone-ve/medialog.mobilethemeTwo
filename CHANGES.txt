@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.5.4dev 
+-------------------
+- use z3cform.datagridfield for urls and selector. This might not work, as it looks like there is a bug in some other product.
+
 0.5.3dev 
 -------------------
 - Make choice for sites to embed a tuple
