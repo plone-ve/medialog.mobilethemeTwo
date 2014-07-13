@@ -21,11 +21,13 @@ class Scrape(BrowserView):
     def scraped(self):
         selector = '#container' #default value
         #get settings from control panel / registry
-        scrape_base_urls = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')
+
+        scrape_url_pair = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url_pair')
         scrape_javascript = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript')
         scrape_style = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_style')
         url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url')
-            
+
+        
         #get url if it was set in the request
         if hasattr(self.request, 'url'):
             url = str(urllib.unquote((self.request.url).decode('utf8')))
@@ -34,11 +36,6 @@ class Scrape(BrowserView):
         #if the url is taken from request
         parts = url.split('//', 1)
         this_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
-        
-        #will try to pass this to repl later
-        #... if it is safe... that is
-        scrape_base_url = list(scrape_base_urls)
-        #scrape_base_url.append(this_base_url)
         
         #get html from the requested url
         r = requests.get(url)
@@ -59,12 +56,17 @@ class Scrape(BrowserView):
         if hasattr(self.request, 'selector'):
             selector = str(urllib.unquote((self.request.selector).decode('utf8')))
         
+        import pdb; pdb.set_trace()        
+        
         else:
-             selectors = str(api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_selector'))
-             if url in scrape_base_url:
-                 count = scrape_base_url.index(url)
-                 selector = selectors.split()[count]
-                     
+             for pair in scrape_url_pair:
+
+                if url in scrape_base_url:
+                    selector = scrape_selector
+        
+        import pdb;pdb.set_trace()
+                
+                   
         sel = CSSSelector(selector)
                 
         # Apply the selector to the DOM tree.

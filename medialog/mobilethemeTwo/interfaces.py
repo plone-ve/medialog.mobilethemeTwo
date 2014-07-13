@@ -6,7 +6,7 @@ from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
 from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvider
 
-#from collective.z3cform.datagridfield import DataGridFieldFactory 
+from collective.z3cform.datagridfield import DataGridFieldFactory 
 from collective.z3cform.datagridfield.registry import DictRow
 
 from zope.i18nmessageid import MessageFactory
@@ -20,7 +20,7 @@ class IMobilethemeTwoLayer(Interface):
 
 #url class/id pair
 class IUrlPair(form.Schema):
-    scrape_base_url = schema.ASCIILine(
+    scrape_base_url = schema.URI(
         title=_(u'scrape_base_url', 'URL that will embed'), 
         required=False
     )
@@ -44,7 +44,7 @@ class IMobilethemeTwoSettings(form.Schema):
             ],
     )
     
-    #form.widget(scrape_url_pair=DataGridFieldFactory)
+    form.widget(scrape_url_pair=DataGridFieldFactory)
     scrape_url_pair = schema.List(
         title = _(u"scrape_url_pair", default=u"URL selector pairs"),
         value_type=DictRow(schema=IUrlPair),
