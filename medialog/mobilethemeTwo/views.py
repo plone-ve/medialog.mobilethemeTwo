@@ -1,21 +1,19 @@
 # -*- coding: utf-8 -*-
 
 #import logging
-from Acquisition import aq_inner
+#from Acquisition import aq_inner
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone import api
 from medialog.mobilethemeTwo.interfaces import IMobilethemeTwoSettings
 
+import requests
 import lxml.html
 import urllib 
 from lxml.cssselect import CSSSelector
 from lxml.html.clean import Cleaner
-
-import requests
-
-from Products.CMFCore.utils import getToolByName
 
 class Scrape(BrowserView):
     """   A View that uses lxml to embed external content    """
@@ -101,13 +99,18 @@ class Scrape(BrowserView):
 class ScrapeView(BrowserView):
     """   A Dexterity Content View that redirects to the scrape view """
     
+    index = ViewPageTemplateFile("scrape_view.pt")
+
+    def render(self):
+        return self.index()
+    
+    def __init__(self, context, request):
+          self.context = context
+          self.request = request
+    
     def __call__(self):
         context = self.context
-        mtool = getToolByName(context, 'portal_membership')
-        
-        canedit = mtool.checkPermission('Modify portal content', context)
-        
-        if canedit == 0:
+        if api.user.is_anonymous():
             root_url = api.portal.get().absolute_url()
             selector  = context.scrape_selector
             url = context.scrape_url
@@ -117,4 +120,4 @@ class ScrapeView(BrowserView):
      
             self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
         
-        return template
+        return self.render()
