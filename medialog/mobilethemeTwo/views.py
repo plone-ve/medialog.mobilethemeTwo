@@ -84,7 +84,7 @@ class Scrape(BrowserView):
         embed_urls = []
         
         for pair in scrape_url_pair:
-            embed_urls.append(pair.'scrape_base_url')
+            embed_urls.append(pair['scrape_base_url'])
 
         #dont modyfy image links
         if link.endswith('.jpg') or link.endswith('.png') or link.endswith('.gif') or link.endswith('.js') or link.endswith('.jpeg') or link.endswith('.pdf'):
