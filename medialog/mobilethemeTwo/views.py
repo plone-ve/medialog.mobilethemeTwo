@@ -83,7 +83,7 @@ class Scrape(BrowserView):
         root_url = api.portal.get().absolute_url()
         
         #dont modyfy image links
-        if link.endswith('.jpg') or link.endswith('.png') or link.endswith('.gif') or link.endswith('.js') or link.endswith('.jpeg') or link.endswith('.pdf'):
+        if '/image' in link  or link.endswith('.jpg') or link.endswith('.png') or link.endswith('.gif') or link.endswith('.js') or link.endswith('.jpeg') or link.endswith('.pdf'):
             return link
         
         #point pages for sites enabled in  control panel to embedded view

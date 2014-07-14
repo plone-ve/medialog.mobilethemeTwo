@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.5.6dev 
+-------------------
+- Better redirecting for links (it is possible to redirect only some of the parts of a site)
+
 0.5.5dev 
 -------------------
 - URLS / selectors are working for the scrape view
