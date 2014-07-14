@@ -81,18 +81,15 @@ class Scrape(BrowserView):
     def repl(html, link):
         scrape_url_pair = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url_pair')
         root_url = api.portal.get().absolute_url()
-        embed_urls = []
         
-        for pair in scrape_url_pair:
-            embed_urls.append(pair['scrape_base_url'])
-
         #dont modyfy image links
         if link.endswith('.jpg') or link.endswith('.png') or link.endswith('.gif') or link.endswith('.js') or link.endswith('.jpeg') or link.endswith('.pdf'):
             return link
         
-        #point pages for sites from control panel to embedded view
-        if link in embed_urls:
-            return root_url + '/scrape?url=' + link
+        #point pages for sites enabled in  control panel to embedded view
+        for pair in scrape_url_pair:
+            if link.startswith(pair['scrape_base_url']):
+                return root_url + '/scrape?url=' + link
         
         #for all other links
         return link
@@ -104,8 +101,8 @@ class ScrapeView(BrowserView):
     
     def __call__(self):
         root_url = api.portal.get().absolute_url()
-        selector  = str(self.context.scrape_selector)
-        url = str(self.context.scrape_url)
+        selector  = self.context.scrape_selector
+        url = self.context.scrape_url
     
         selector = urllib.quote(selector).decode('utf8') 
         url =      urllib.quote(url).decode('utf8')
