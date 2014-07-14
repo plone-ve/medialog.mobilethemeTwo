@@ -91,7 +91,7 @@ class Scrape(BrowserView):
             return link
         
         #point pages for sites from control panel to embedded view
-        if site_url in embed_urls:
+        if link in embed_urls:
             return root_url + '/scrape?url=' + link
         
         #for all other links
