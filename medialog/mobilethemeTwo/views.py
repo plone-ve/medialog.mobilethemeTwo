@@ -110,14 +110,16 @@ class ScrapeView(BrowserView):
     
     def __call__(self):
         context = self.context
-        if api.user.is_anonymous():
-            root_url = api.portal.get().absolute_url()
-            selector  = context.scrape_selector
-            url = context.scrape_url
+        if not api.user.is_anonymous():
+            if 'Modify portal content' in api.user.get_permissions(): 
+                return self.render()
+            
+        root_url = api.portal.get().absolute_url()
+        selector  = context.scrape_selector
+        url = context.scrape_url
     
-            selector = urllib.quote(selector).decode('utf8') 
-            url =      urllib.quote(url).decode('utf8')
+        selector = urllib.quote(selector).decode('utf8') 
+        url =      urllib.quote(url).decode('utf8')
      
-            self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
+        self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
         
-        return self.render()
