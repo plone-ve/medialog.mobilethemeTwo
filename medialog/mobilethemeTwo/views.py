@@ -117,4 +117,4 @@ class ScrapeView(BrowserView):
      
             self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
         
-        return context.view()
+        return template

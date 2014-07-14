@@ -40,6 +40,7 @@
       name="scrape_view"
       class=".views.ScrapeView"
       permission="zope.Public"
+      template="scrape_view.pt"
   />
    
     
