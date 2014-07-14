@@ -40,6 +40,7 @@ setup(name='medialog.mobilethemeTwo',
           'setuptools',
           'z3c.jbot',
           'zettwerk.mobiletheming',
+          'plone.behavior'
 
           # -*- Extra requirements: -*-
       ],
