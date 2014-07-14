@@ -53,19 +53,16 @@ class Scrape(BrowserView):
         tree.rewrite_links(self.repl)
         
         # construct a CSS Selector
+        #it the request defines one, use that
         if hasattr(self.request, 'selector'):
             selector = str(urllib.unquote((self.request.selector).decode('utf8')))
         
-        import pdb; pdb.set_trace()        
-        
+        #if not, use settings from control panel
         else:
-             for pair in scrape_url_pair:
-
-                if url in scrape_base_url:
-                    selector = scrape_selector
-        
-        import pdb;pdb.set_trace()
-                
+            for pair in scrape_url_pair:
+                if pair['scrape_base_url'] in url:
+                    selector = pair['scrape_selector']
+                    break
                    
         sel = CSSSelector(selector)
                 
@@ -82,22 +79,21 @@ class Scrape(BrowserView):
         
     
     def repl(html, link):
-        scrape_base_urls = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_base_url')
+        scrape_url_pair = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url_pair')
         root_url = api.portal.get().absolute_url()
-        scrape_base_url = list(scrape_base_urls)
-
+        embed_urls = []
+        
+        for pair in scrape_url_pair:
+            embed_urls.append(pair.'scrape_base_url')
 
         #dont modyfy image links
         if link.endswith('.jpg') or link.endswith('.png') or link.endswith('.gif') or link.endswith('.js') or link.endswith('.jpeg') or link.endswith('.pdf'):
             return link
-        #point other pages to embedded view
-        check = 0
-        for site_url in scrape_base_url:
-            if link.startswith(site_url):
-                check = 1
-                break
-        if check == 1:
-            return   root_url + '/scrape?url=' + link
+        
+        #point pages for sites from control panel to embedded view
+        if site_url in embed_urls:
+            return root_url + '/scrape?url=' + link
+        
         #for all other links
         return link
 

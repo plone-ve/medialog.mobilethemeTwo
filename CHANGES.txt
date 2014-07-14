@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.5.5dev 
+-------------------
+- URLS / selectors are working for the scrape view
+
+
 0.5.4dev 
 -------------------
 - use z3cform.datagridfield for urls and selector. This might not work, as it looks like there is a bug in some other product.
