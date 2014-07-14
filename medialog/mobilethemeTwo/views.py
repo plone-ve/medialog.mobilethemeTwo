@@ -15,6 +15,8 @@ from lxml.html.clean import Cleaner
 
 import requests
 
+from Products.CMFCore.utils import getToolByName
+
 class Scrape(BrowserView):
     """   A View that uses lxml to embed external content    """
     
@@ -100,11 +102,19 @@ class ScrapeView(BrowserView):
     """   A Dexterity Content View that redirects to the scrape view """
     
     def __call__(self):
-        root_url = api.portal.get().absolute_url()
-        selector  = self.context.scrape_selector
-        url = self.context.scrape_url
+        context = self.context
+        mtool = getToolByName(context, 'portal_membership')
+        
+        canedit = mtool.checkPermission('Modify portal content', context)
+        
+        if canedit == 0:
+            root_url = api.portal.get().absolute_url()
+            selector  = context.scrape_selector
+            url = context.scrape_url
     
-        selector = urllib.quote(selector).decode('utf8') 
-        url =      urllib.quote(url).decode('utf8')
+            selector = urllib.quote(selector).decode('utf8') 
+            url =      urllib.quote(url).decode('utf8')
      
-        self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
+            self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
+        
+        return context.view()
