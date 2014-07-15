@@ -226,9 +226,24 @@ pre {
 img {
 	border: 0;
 	-ms-interpolation-mode: bicubic;
+	margin-top: 1em;
 	max-width: 100%;
 	height: auto;
 }
+
+div.module .relatedImage img {
+	margin-bottom: 0.5em;
+		width: 100%;
+}
+
+
+
+div.module  a img {
+	margin-right: 1em;
+	margin-bottom: 0.6em;
+	clear: both;	
+}
+
 
 .relatedImage img {
 	width: 100%;
