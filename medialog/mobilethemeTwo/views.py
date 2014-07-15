@@ -26,12 +26,17 @@ class Scrape(BrowserView):
         scrape_javascript = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript')
         scrape_style = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_style')
         url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url')
+        scrape_safe_attrs_only = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_safe_attrs_only')
+        scrape_whitelist = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_whitelist')
 
         
         #get url if it was set in the request
         if hasattr(self.request, 'url'):
             url = str(urllib.unquote((self.request.url).decode('utf8')))
         
+        if url not in scrape_whitelist:
+            return "URL domain is not in whitelist"
+            
         #get base url, 
         #if the url is taken from request
         parts = url.split('//', 1)
@@ -42,7 +47,7 @@ class Scrape(BrowserView):
         tree = lxml.html.fromstring(r.text)
              
         #clean evil stuff
-        cleaner = Cleaner(javascript = scrape_javascript , style = scrape_style )
+        cleaner = Cleaner(javascript = scrape_javascript , style = scrape_style, safe_attrs_only = scrape_safe_attrs_only)
         cleaner(tree)
         
         #the parsed DOM Tree

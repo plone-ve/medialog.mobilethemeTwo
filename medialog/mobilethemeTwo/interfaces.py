@@ -39,8 +39,10 @@ class IMobilethemeTwoSettings(form.Schema):
             fields=[
                     'scrape_url',
                     'scrape_url_pair',
+                    'safe_attrs_only',
                     'scrape_javascript',
-                    'scrape_style'
+                    'scrape_style',
+                    'scrape_whitelist',
             ],
     )
     
@@ -54,6 +56,12 @@ class IMobilethemeTwoSettings(form.Schema):
                 title=_(u"scrape_url", default=u"Default URL"),
     )
                       
+    scrape_safe_attrs_only = schema.Bool(
+                 title=_(u"scrape_safe_attrs_only", default=u"Security:Only permit safe attr"),
+                 description=_(u"help_safe_attrs_only",
+                  default="")
+    )
+    
     scrape_javascript = schema.Bool(
                  title=_(u"scrape_javascript", default=u"Security: Filter out javascript"),
                  description=_(u"help_scrape_javascript",
@@ -64,6 +72,10 @@ class IMobilethemeTwoSettings(form.Schema):
                  title=_(u"scrape_style", default=u"Security: Filter out CSS styles"),
                  description=_(u"help_scrape_style",
                   default="")
+    )
+    
+    scrape_whitelist = schema.URI(
+                title=_(u"scrape_whitelist", default=u"Only permit these URLs"),
     )
 
 alsoProvides(IMobilethemeTwoSettings, IMedialogControlpanelSettingsProvider)
