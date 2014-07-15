@@ -39,7 +39,7 @@ class Scrape(BrowserView):
         parts = url.split('//', 1)
         this_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
         
-        if url not in scrape_whitelist:
+        if this_base_url not in scrape_whitelist:
             return "URL domain is not in whitelist"
             
         #get html from the requested url
