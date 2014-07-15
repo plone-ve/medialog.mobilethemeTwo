@@ -1,6 +1,7 @@
 medialog.mobilethemeTwo
 =======================
 
+WARNING: This product contains a view that could bee a security RISK!
 
 About the theme
 ===============
@@ -39,7 +40,7 @@ About the views and behavior
 
 - This is very experimental. Please give feedback and suggestions.
 
-- The embed views are probably insecure, if the remote site contains evil JS.
+- The embed views are probably insecure, if the remote site contains evil code.
 
 
 
