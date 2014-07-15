@@ -3,7 +3,7 @@ Changelog
 
 0.5.6dev 
 -------------------
-- Better redirecting for links (it is possible to redirect only some of the parts of a site)
+- Don’t redirect views for those with edit rights
 
 0.5.5dev 
 -------------------
