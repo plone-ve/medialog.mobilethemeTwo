@@ -3,8 +3,7 @@ Changelog
 
 0.5.7dev 
 -------------------
-- added more security settings
-
+- Added security settings
 
 0.5.6dev 
 -------------------
