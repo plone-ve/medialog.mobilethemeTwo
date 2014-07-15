@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.5.7dev 
+-------------------
+- added more security settings
+
+
 0.5.6dev 
 -------------------
 - Don’t redirect views for those with edit rights

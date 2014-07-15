@@ -39,7 +39,7 @@ class IMobilethemeTwoSettings(form.Schema):
             fields=[
                     'scrape_url',
                     'scrape_url_pair',
-                    'safe_attrs_only',
+                    'scrape_safe_attrs_only',
                     'scrape_javascript',
                     'scrape_style',
                     'scrape_whitelist',
