@@ -74,8 +74,9 @@ class IMobilethemeTwoSettings(form.Schema):
                   default="")
     )
     
-    scrape_whitelist = schema.URI(
+    scrape_whitelist = schema.Tuple(
                 title=_(u"scrape_whitelist", default=u"Only permit these URLs"),
+                value_type=schema.URI(),
     )
 
 alsoProvides(IMobilethemeTwoSettings, IMedialogControlpanelSettingsProvider)
