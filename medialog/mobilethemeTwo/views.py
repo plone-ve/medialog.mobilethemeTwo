@@ -33,15 +33,15 @@ class Scrape(BrowserView):
         #get url if it was set in the request
         if hasattr(self.request, 'url'):
             url = str(urllib.unquote((self.request.url).decode('utf8')))
-        
-        if url not in scrape_whitelist:
-            return "URL domain is not in whitelist"
             
         #get base url, 
         #if the url is taken from request
         parts = url.split('//', 1)
         this_base_url = parts[0]+'//'+parts[1].split('/', 1)[0]
         
+        if url not in scrape_whitelist:
+            return "URL domain is not in whitelist"
+            
         #get html from the requested url
         r = requests.get(url)
         tree = lxml.html.fromstring(r.text)
