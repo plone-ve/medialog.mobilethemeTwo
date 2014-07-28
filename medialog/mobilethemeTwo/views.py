@@ -21,14 +21,12 @@ class Scrape(BrowserView):
     def scraped(self):
         selector = '#container' #default value
         #get settings from control panel / registry
-
         scrape_url_pair = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url_pair')
         scrape_javascript = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_javascript')
         scrape_style = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_style')
         url = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_url')
         scrape_safe_attrs_only = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_safe_attrs_only')
         scrape_whitelist = api.portal.get_registry_record('medialog.mobilethemeTwo.interfaces.IMobilethemeTwoSettings.scrape_whitelist')
-
         
         #get url if it was set in the request
         if hasattr(self.request, 'url'):
@@ -100,31 +98,14 @@ class Scrape(BrowserView):
         return link
 
 
-
-class ScrapeView(BrowserView):
-    """   A Dexterity Content View that redirects to the scrape view """
-    
-    index = ViewPageTemplateFile("scrape_view.pt")
-
-    def render(self):
-        return self.index()
-    
+class ScrapeView(Scrape):
+    """   A Dexterity Content View that uses the scrape view """
+            
     def __init__(self, context, request):
           self.context = context
           self.request = request
+          #looks ugly, but works
+          self.request.selector    =   urllib.quote(context.scrape_selector).decode('utf8') 
+          self.request.url         =   urllib.quote(context.scrape_url).decode('utf8')
     
-    def __call__(self):
-        context = self.context
-        if not api.user.is_anonymous():
-            if 'Modify portal content' in api.user.get_permissions(): 
-                return self.render()
-            
-        root_url = api.portal.get().absolute_url()
-        selector  = context.scrape_selector
-        url = context.scrape_url
-    
-        selector = urllib.quote(selector).decode('utf8') 
-        url =      urllib.quote(url).decode('utf8')
-     
-        self.request.response.redirect(root_url + "/scrape?selector=" + selector + "&url=" + url )
         
