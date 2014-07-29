@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.5.8dev 
+-------------------
+- CSS edits: styling of error messages and tables.
+
 0.5.7dev 
 -------------------
 - Added security settings
