@@ -1,4 +1,4 @@
-
+/* @override http://localhost:8080/xxxSSSSS/++theme++medialog.mobilethemeTwo/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css */
 
 @import url(http:/fonts.googleapis.com/css?family=Source+Sans+Pro);
 
@@ -138,16 +138,28 @@ dfn {
 	font-style: italic;
 }
 
+dl.portalMessage,
 mark {
 	background: #ff0;
 	color: #000;
+	padding: 1em 1.5em;
 }
 
-p,pre {
+
+p {
 	margin: 0 0 1em 0;
-	line-height: 1.8em;
+	line-height: 1.6em;
 	color: #4d4d4d;
+	font-size: 0.9em;
 }
+
+.documentDescription {
+	margin: 1em 0;	
+	font-size: 125%;
+	line-height: 145%;
+}
+
+
 
 pre,code,kbd,samp {
 	font-family: monospace, serif;
@@ -159,8 +171,14 @@ pre {
 	white-space: pre;
 	white-space: pre-wrap;
 	word-wrap: break-word;
+	padding: 1em 1.3em;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid #ddd;
+	box-shadow: inset 0 0 10px #eeeeee;
+	-moz-box-shadow: inset 0 0 10px #eeeeee;
+	-webkit-box-shadow: inset 0 0 10px #eeeeee;
+	font-size: 0.8em;
 }
-
 q {
 	quotes: none;
 }
@@ -197,15 +215,7 @@ ol,ul,dl {
 	margin: 0 0 10px;
 }
 
-pre {
-	padding: 10px;
-	background: rgba(255, 255, 255, 0.1);
-	border: 1px solid #ddd;
-	box-shadow: inset 0 0 10px #eeeeee;
-	-moz-box-shadow: inset 0 0 10px #eeeeee;
-	-webkit-box-shadow: inset 0 0 10px #eeeeee;
-	font-size: 0.8em;
-}
+
 
 #content-core ul ul,#content-core ol ul,#content-core dl ul,#content-core ul ol,#content-core ol ol,#content-core dl ol {
 	margin: 0;
@@ -275,15 +285,15 @@ legend {
 	*margin-left: -7px;
 }
 
-button,input,select,textarea {
-	font-size: 100%;
-	margin: 0;
-	vertical-align: baseline;
-	*vertical-align: middle;
-}
+
 
 button,input {
 	line-height: normal;
+}
+
+input#onecheckbox {
+	float: left;
+	margin-right: 1em;
 }
 
 input.searchButton {
@@ -305,10 +315,10 @@ div.contakt-info {
     color: #444444;
     display: block;
     margin: 1em;
-    padding: 5px 8px;
+    padding: 0px 8px 10px;
     text-align: center;
     font-size: 1.2em;
-    line-height: 2em;
+    line-height: 1.5em;
 }
 
 
@@ -356,10 +366,117 @@ textarea {
 	vertical-align: top;
 }
 
+
+/* @group tables */
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+table td {
+	vertical-align: top;
+	border-bottom: 1px solid #999;
+}
+
+table.listing,
+.stx table {
+	border: solid 1px #999;
+	margin: 1em 0em 1em 0em;
+	font-size: 90%;
+}
+
+table.listing th,
+.stx table th {
+	margin: 0px;
+	padding: 0.5em 1em;
+	background-color: whitesmoke;
+	text-align: left;
+	border: 1px solid #999;
+}
+ 
+ 
+table.listing td,
+.stx table td {
+	margin-bottom: 0px;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	padding-bottom: 5px;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+}
+
+table.invisible {
+	margin: 10px 0;
+	font-size: 11px;
+}
+
+table.invisible tbody td {
+	padding: 3px 10px 3px 0;
+}
+
+table.listing a {
+	text-decoration: none;
+}
+
+table.listing a:hover {
+	text-decoration: underline;
+}
+
+table.listing img {
+	vertical-align: middle;
+}
+
+table.listing td a label,
+.stx table td a label {
+	cursor: pointer;
+}
+
+/* Vertical addition class */
+
+
+
+table.vertical th {
+	padding: 0.5em;
+	border-top: none;
+}
+
+table.vertical td {
+	border-top: 1px solid #999;
+	padding: 0.5em;
+}
+
+/* grid addition class */
+
+table.grid td {
+	border: 1px solid #DDD;
+}
+
+/* plain table class with light gray borders */
+
+table.plain,
+table.plain td,
+table.plain th {
+	padding: 0.5em;
+}
+
+
+.fieldRequired {
+	color: red;
+}
+
+.listing tr.even {
+	background-color: whitesmoke;
+}
+ 
+}
+
+.listing tr.selected {
+	background-color: #DDD;
+}
+
+/* @end */
 
 form label {
 	font-size: 12px;
@@ -385,6 +502,14 @@ form div {
 	margin: 0 0 0.8em 0;
 }
 
+div.formControls input{
+	margin-top: 0.5em;
+	font-size: 90%;
+	line-height: 130%;
+}
+
+
+
 form textarea {
 	height: 80px;
 }
@@ -393,6 +518,7 @@ label {
 	display: block;
 }
 
+.error,
 form label span.red {
 	color: #ff0000;
 }
@@ -447,10 +573,7 @@ form input[type=submit] {
 
 /* typography */
 
-p {
-	font-size: 0.9em;
-	line-height: 1.6em
-}
+
 
 blockquote {
 	background: url("++theme++medialog.mobilethemeTwo/assets/images/quotes.png") no-repeat top left;
