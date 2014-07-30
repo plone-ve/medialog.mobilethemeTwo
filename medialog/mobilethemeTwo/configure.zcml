@@ -43,4 +43,12 @@
       template="scrape_view.pt"
   /> 
   
+  <browser:page
+    name="cache.manifest"
+    for="plone.app.layout.navigation.interfaces.INavigationRoot"
+    class="plone.app.layout.sitemap.SiteMapView"
+    permission="zope2.Public"
+    template="cachemanifest.pt"
+  />
+     
 </configure>
