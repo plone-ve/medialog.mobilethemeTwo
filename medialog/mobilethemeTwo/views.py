@@ -114,31 +114,30 @@ class Manifest(BrowserView):
     """No idea if this is correct"""
     
     def __call__(self):
-        return """
-        CACHE MANIFEST
-        # first try
+        return """CACHE MANIFEST
+# first try
 
-        # Explicitly cached entries
-        /++theme++medialog.mobilethemeTwo/assets/mobiletwo.css 
-        /++theme++medialog.mobilethemeTwo/assets/navigation.css 
-        /++theme++medialog.mobilethemeTwo/assets/authoring.css 
-        /++theme++medialog.mobilethemeTwo/assets/reset.css 
-        /++theme++medialog.mobilethemeTwo/assets/invisibles.css
-        /++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/phone.png
-        /++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/mail4.png
-        /sitemap
-        /contact-info
+# Explicitly cached entries
+/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css 
+/++theme++medialog.mobilethemeTwo/assets/navigation.css 
+/++theme++medialog.mobilethemeTwo/assets/authoring.css 
+/++theme++medialog.mobilethemeTwo/assets/reset.css 
+/++theme++medialog.mobilethemeTwo/assets/invisibles.css
+/++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/phone.png
+/++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/mail4.png
+/sitemap
+/contact-info
 
-        # offline.html will be displayed if the user is offline
-        FALLBACK:
-        / /offline.html
+# offline.html will be displayed if the user is offline
+FALLBACK:
+/ /offline.html
 
-        # All other resources (e.g. sites) require the user to be online. 
-        NETWORK:
-        *
+# All other resources (e.g. sites) require the user to be online. 
+NETWORK:
+*
 
-        # Additional resources to cache
-        CACHE:
-        #get sitemap here, probably
+# Additional resources to cache
+CACHE:
+#get sitemap here, probably
         
         """
