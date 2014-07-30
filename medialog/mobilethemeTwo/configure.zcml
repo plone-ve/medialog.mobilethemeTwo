@@ -46,7 +46,7 @@
   <browser:page
     name="cache.manifest"
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
-    class="views.Manifest"
+    class=".views.Manifest"
     permission="zope2.Public"
   />
      
