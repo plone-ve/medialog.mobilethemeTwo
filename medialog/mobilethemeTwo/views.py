@@ -149,8 +149,8 @@ class Manifest(BrowserView):
 /contact-info
 
 # offline.html will be displayed if the user is offline
-FALLBACK:
-/ /++theme++medialog.mobilethemeTwo/offline.html
+#FALLBACK:
+#/ /++theme++medialog.mobilethemeTwo/offline.html
 
 # All other resources (e.g. sites) require the user to be online. 
 NETWORK:
