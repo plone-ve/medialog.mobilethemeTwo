@@ -15,6 +15,10 @@ import urllib
 from lxml.cssselect import CSSSelector
 from lxml.html.clean import Cleaner
 
+
+from Products.CMFCore.utils import getToolByName
+from zope.component import getMultiAdapter
+
 class Scrape(BrowserView):
     """   A View that uses lxml to embed external content    """
     
@@ -111,9 +115,18 @@ class ScrapeView(Scrape):
         
         
 class Manifest(BrowserView):
-    """No idea if this is correct"""
+    """List of urls to cache"""
     
     def __call__(self):
+        context = self.context
+        catalog = getToolByName(context, 'portal_catalog')
+
+        all_brains = catalog.searchResults()
+        urls = ''
+        for brain in all_brains:
+            urls += (brain.getURL())
+            urls +="\n"
+             
         return """CACHE MANIFEST
 # first try
 
@@ -138,6 +151,9 @@ NETWORK:
 
 # Additional resources to cache
 CACHE:
-#get sitemap here, probably
-        
-        """
+#get sitemap here, maybe
+%s
+        """ %(urls)
+
+
+        return printed
