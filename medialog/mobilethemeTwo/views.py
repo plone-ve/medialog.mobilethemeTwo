@@ -128,14 +128,23 @@ class Manifest(BrowserView):
 # first try
 
 # Explicitly cached entries
+/++theme++medialog.mobilethemeTwo/assets/invisibles.css
 /++theme++medialog.mobilethemeTwo/assets/mobiletwo.css 
 /++theme++medialog.mobilethemeTwo/assets/navigation.css 
-/++theme++medialog.mobilethemeTwo/assets/authoring.css 
 /++theme++medialog.mobilethemeTwo/assets/reset.css 
-/++theme++medialog.mobilethemeTwo/assets/invisibles.css
-/++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/phone.png
+/++theme++medialog.mobilethemeTwo/assets/authoring.css 
 /++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/mail4.png
+/++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/newspaper.png
+/++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/phone.png
+/++theme++medialog.mobilethemeTwo/assets/images/add.png
 /++theme++medialog.mobilethemeTwo/assets/images/addbutton.png
+/++theme++medialog.mobilethemeTwo/assets/images/bubble.png
+/++theme++medialog.mobilethemeTwo/assets/images/call.png
+/++theme++medialog.mobilethemeTwo/assets/images/gear.png
+/++theme++medialog.mobilethemeTwo/assets/images/home.png
+/++theme++medialog.mobilethemeTwo/assets/images/info.png
+/++theme++medialog.mobilethemeTwo/assets/images/mail.png
+/++theme++medialog.mobilethemeTwo/assets/images/navigation.png
 /sitemap
 /contact-info
 
