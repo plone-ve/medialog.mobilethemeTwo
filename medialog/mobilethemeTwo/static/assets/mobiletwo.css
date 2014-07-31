@@ -281,10 +281,7 @@ legend {
 	border: 0;
 	padding: 0;
 	white-space: normal;
-	*margin-left: -7px;
 }
-
-
 
 button,input {
 	line-height: normal;
@@ -330,18 +327,17 @@ div.contakt-info {
 button,input[type="button"],input[type="reset"],input[type="submit"] {
 	cursor: pointer;
 	-webkit-appearance: button;
-	*overflow: visible;
 }
 
-button[disabled],input[disabled] {
+button[disabled],
+input[disabled] {
 	cursor: default;
 }
 
 input[type="checkbox"],input[type="radio"] {
 	box-sizing: border-box;
 	padding: 0;
-	*height: 13px;
-	*width: 13px;
+
 }
 
 input[type="search"] {
@@ -469,7 +465,6 @@ table.plain th {
 	background-color: whitesmoke;
 }
  
-}
 
 .listing tr.selected {
 	background-color: #DDD;
@@ -566,7 +561,8 @@ form input[type=submit] {
 	padding: 10px;
 }
 
-.inline input,.inline label {
+.inline input,
+.inline label {
 	display: inline-block !important;
 }
 

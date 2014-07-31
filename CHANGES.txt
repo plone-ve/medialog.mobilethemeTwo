@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6dev 
+-------------------
+- Fixed errors in cache.manifest link
+
 0.5.9dev 
 -------------------
 - Add to home screen javascript
