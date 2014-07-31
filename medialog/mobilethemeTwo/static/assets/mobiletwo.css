@@ -317,14 +317,15 @@ div.contakt-info {
     line-height: 1.5em;
 }
 
-
- 
 .contakt-info a.btn.button img {
- width: 24px;
- height: 24px;
+	 width: 24px;
+	 height: 24px;
  }
   
-button,input[type="button"],input[type="reset"],input[type="submit"] {
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
 	cursor: pointer;
 	-webkit-appearance: button;
 }
@@ -482,7 +483,8 @@ form.contact-form {
 }
 
 form input[type=text],
-form input[type=password],textarea {
+form input[type=password],
+textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 }
@@ -501,8 +503,6 @@ div.formControls input{
 	font-size: 90%;
 	line-height: 130%;
 }
-
-
 
 form textarea {
 	height: 80px;
@@ -593,7 +593,9 @@ body {
 	font-size: 0.8em;
 }
 
-#portal-header p, #portal-footer p, .footer p {
+#portal-header p, 
+#portal-footer p, 
+.footer p {
 	color: #565656;
 	text-align: center;
 }
