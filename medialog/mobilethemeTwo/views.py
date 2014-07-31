@@ -125,8 +125,6 @@ class Manifest(BrowserView):
             urls +="\n"
              
         return """CACHE MANIFEST
-# first try
-
 # Explicitly cached entries
 /++theme++medialog.mobilethemeTwo/assets/invisibles.css
 /++theme++medialog.mobilethemeTwo/assets/mobiletwo.css 
@@ -147,6 +145,7 @@ class Manifest(BrowserView):
 /++theme++medialog.mobilethemeTwo/assets/images/navigation.png
 #/sitemap
 /contact-info
+%s
 
 # offline.html will be displayed if the user is offline
 #FALLBACK:
@@ -157,10 +156,9 @@ NETWORK:
 *
 
 # Additional resources to cache
-CACHE:
+#CACHE:
 #get sitemap here, maybe
-%s
-        """ %(urls)
+""" %(urls)
 
 
         return printed
