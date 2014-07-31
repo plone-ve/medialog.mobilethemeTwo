@@ -117,7 +117,7 @@ class Manifest(BrowserView):
     """List of urls to cache"""
     
     def __call__(self):
-        urls = '#Cached urls, date:' + str(DateTime()) +'\n'
+        urls = '#Cached urls, date:' + (str(DateTime()))[0:16] +'\n'
         catalog = api.portal.get_tool(name='portal_catalog')
         all_brains = catalog.searchResults()
         for brain in all_brains:
