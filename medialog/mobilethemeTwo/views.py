@@ -15,9 +15,8 @@ import urllib
 from lxml.cssselect import CSSSelector
 from lxml.html.clean import Cleaner
 
-
-from Products.CMFCore.utils import getToolByName
-from zope.component import getMultiAdapter
+from DateTime import DateTime
+ 
 
 class Scrape(BrowserView):
     """   A View that uses lxml to embed external content    """
@@ -118,11 +117,9 @@ class Manifest(BrowserView):
     """List of urls to cache"""
     
     def __call__(self):
-        context = self.context
-        catalog = getToolByName(context, 'portal_catalog')
-
+        urls = '#Cached urls, date:' + str(DateTime()) +'\n'
+        catalog = api.portal.get_tool(name='portal_catalog')
         all_brains = catalog.searchResults()
-        urls = ''
         for brain in all_brains:
             urls += (brain.getURL())
             urls +="\n"
