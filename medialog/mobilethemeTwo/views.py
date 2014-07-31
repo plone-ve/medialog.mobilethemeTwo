@@ -135,6 +135,7 @@ class Manifest(BrowserView):
 /++theme++medialog.mobilethemeTwo/assets/invisibles.css
 /++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/phone.png
 /++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/mail4.png
+/++theme++medialog.mobilethemeTwo/assets/images/addbutton.png
 /sitemap
 /contact-info
 
