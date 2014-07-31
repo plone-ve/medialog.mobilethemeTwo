@@ -20,7 +20,7 @@
         <theme href="theme.html" />
     
         <!-- drop heading for scrape view -->
-      	<drop css:content=".documentModified"    css:if-content="body.template-scrape" />
+      	<drop css:content=".documentFirstHeading" css:if-content="body.template-scrape_view" />
       	<drop css:content=".documentFirstHeading" css:if-content="body.template-scrape" />
       	
       	<!-- drop html from external site used in the scrape view-->

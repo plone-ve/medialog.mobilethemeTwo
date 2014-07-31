@@ -145,12 +145,12 @@ class Manifest(BrowserView):
 /++theme++medialog.mobilethemeTwo/assets/images/info.png
 /++theme++medialog.mobilethemeTwo/assets/images/mail.png
 /++theme++medialog.mobilethemeTwo/assets/images/navigation.png
-/sitemap
+#/sitemap
 /contact-info
 
 # offline.html will be displayed if the user is offline
 FALLBACK:
-/ /offline.html
+/ /++theme++medialog.mobilethemeTwo/offline.html
 
 # All other resources (e.g. sites) require the user to be online. 
 NETWORK:
