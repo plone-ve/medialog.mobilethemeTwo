@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.5.9dev 
+-------------------
+- Add to home screen javascript
+
 0.5.8dev 
 -------------------
 - CSS edits: styling of error messages and tables.
