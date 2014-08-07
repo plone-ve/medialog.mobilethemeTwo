@@ -15,7 +15,7 @@ Usage
 ======
 You probably want to use the theme like this:
 
-- install zettewek.mobiletheming
+- install zettewerk.mobiletheming
 
 - install medialog.mobilethemeTwo
 
