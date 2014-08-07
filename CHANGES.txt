@@ -1,6 +1,11 @@
 Changelog
 =========
 
+
+0.7dev 
+-------------------
+- Removed lxml view and put it in medialog.lxml
+
 0.6dev 
 -------------------
 - Fixed errors in cache.manifest link

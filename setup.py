@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.6'
+version = '0.7'
 
 long_description = (
     open('README.txt').read()
@@ -30,17 +30,12 @@ setup(name='medialog.mobilethemeTwo',
       zip_safe=False,
       install_requires=[
           'collective.z3cform.datagridfield',
-          'cssselect',
           'ftw.mobilenavigation',
-          'medialog.controlpanel',
           'plone.api',
           'plone.app.themingplugins',
-          'plone.directives.form',
-          'requests',
           'z3c.jbot',
           'zettwerk.mobiletheming',
-          'plone.behavior'
-
+          
           # -*- Extra requirements: -*-
       ],
       entry_points="""

@@ -7,7 +7,6 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="medialog.mobilethemeTwo">
     
-  <include file="behaviors.zcml" />
   <five:registerPackage package="." initialize=".initialize" />
   
   <genericsetup:registerProfile
@@ -25,24 +24,7 @@
   <!--browser:jbot
     directory="static/overrides"
     layer="medialog.mobilethemeTwo.interfaces.IMobilethemeTwoLayer" /-->
-    
-  
-  <browser:page
-    for="*"
-    name="scrape"
-    class=".views.Scrape"
-    template="scrape.pt"
-    permission="zope2.View"
-  />
-  
-  <browser:page
-      for="plone.dexterity.interfaces.IDexterityContent"
-      name="scrape_view"
-      class=".views.ScrapeView"
-      permission="zope.Public"
-      template="scrape_view.pt"
-  /> 
-  
+      
   <browser:page
     name="cache.manifest"
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
