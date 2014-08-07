@@ -1,11 +1,6 @@
 medialog.mobilethemeTwo
 =======================
 
-WARNING: This product contains a view that could bee a security RISK!
-
-About the theme
-===============
-
 A theme intended for use with mobile theming control panel (zettwerk.mobiletheming).
 The theme uses plone.app.themingplugins to override templates just for this theme.
 These templates will not work if you duplicate the theme TTW (themingplugins do not work for that) 
