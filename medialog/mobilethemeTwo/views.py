@@ -180,7 +180,7 @@ class Manifest(BrowserView):
 /++theme++medialog.mobilethemeTwo/assets/images/info.png
 /++theme++medialog.mobilethemeTwo/assets/images/mail.png
 /++theme++medialog.mobilethemeTwo/assets/images/navigation.png
-#/sitemap
+/sitemap
 /contact-info
 %s
 
