@@ -24,10 +24,6 @@ class Manifest(BrowserView):
              
         return """CACHE MANIFEST
 # Explicitly cached entries
-/++theme++medialog.mobilethemeTwo/assets/invisibles.css
-/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css 
-/++theme++medialog.mobilethemeTwo/assets/navigation.css 
-/++theme++medialog.mobilethemeTwo/assets/reset.css 
 /++theme++medialog.mobilethemeTwo/assets/authoring.css 
 /++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/mail4.png
 /++theme++medialog.mobilethemeTwo/assets/IcoMoon/Icons/png/32px/newspaper.png
@@ -41,8 +37,14 @@ class Manifest(BrowserView):
 /++theme++medialog.mobilethemeTwo/assets/images/info.png
 /++theme++medialog.mobilethemeTwo/assets/images/mail.png
 /++theme++medialog.mobilethemeTwo/assets/images/navigation.png
-/sitemap
+/++theme++medialog.mobilethemeTwo/assets/images/quotes.png
+/++theme++medialog.mobilethemeTwo/assets/invisibles.css
+/++theme++medialog.mobilethemeTwo/assets/mobiletwo.css 
+/++theme++medialog.mobilethemeTwo/assets/navigation.css 
+/++theme++medialog.mobilethemeTwo/assets/reset.css 
+/++theme++medialog.mobilethemeTwo/assets/slider.min.js
 /contact-info
+/sitemap
 %s
 
 # offline.html will be displayed if the user is offline
