@@ -4,5 +4,6 @@
   <dependencies>
     <dependency>profile-plone.app.theming:default</dependency>
     <dependency>profile-ftw.mobilenavigation:default</dependency>
+    <dependency>profile-zettwerk.mobiletheming:default</dependency>
   </dependencies>
 </metadata>
