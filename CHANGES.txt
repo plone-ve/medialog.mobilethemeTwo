@@ -1,6 +1,19 @@
 Changelog
 =========
 
+0.8dev (unreleased)
+-------------------
+- Enabled zettwerk.mobiletheming package when theme was installed [macagua]
+
+- Added a simple Diazo theme package (Zip file) [macagua]
+
+- Added HTML5 validation for HTML files [macagua]
+
+- Added more strings classifiers items for this package [macagua]
+
+- Updated manifest file for diazo theme adding preview file [macagua]
+
+- Added improvements about README file [macagua]
 
 0.7dev 
 -------------------
