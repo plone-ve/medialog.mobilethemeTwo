@@ -10,21 +10,25 @@ Introduction
 `Grieg Medialog AS`_ using the **theming** and **packaging** features available 
 in `plone.app.theming`_, `plone.app.themingplugins`_ and `zettwerk.mobiletheming`_ packages.
 
+.. image:: https://github.com/espenmn/medialog.mobilethemeTwo/raw/master/medialog/mobilethemeTwo/static/preview.png
+  :alt: medialog.mobilethemeTwo Mobile Theme
+  :align: center
+
 
 Screenshots
 ===========
 
 Layout of the site when viewed in a computer resolution:
 
-.. figure:: image:: https://github.com/espenmn/medialog.mobilethemeTwo/raw/master/medialog/mobilethemeTwo/static/preview.png
-
-  medialog.mobilethemeTwo Mobile Theme
+.. image:: https://github.com/espenmn/medialog.mobilethemeTwo/raw/master/screenshot0.png
+  :alt: medialog.mobilethemeTwo theme Demo at Computer device
+  :align: center
 
 A demo using the ``medialog.mobilethemeTwo`` add-on as a reduced view for Mobile device look like the following:
 
-.. figure:: https://raw.githubusercontent.com/espenmn/medialog.mobilethemeTwo/master/screenshots_two.png
-
-  medialog.mobilethemeTwo theme Demo at Mobile device.
+.. image:: https://github.com/espenmn/medialog.mobilethemeTwo/raw/master/screenshot1.png
+  :alt: medialog.mobilethemeTwo theme Demo at Mobile device
+  :align: center
 
 
 Features
