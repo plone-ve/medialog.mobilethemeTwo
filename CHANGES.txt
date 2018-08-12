@@ -3,6 +3,9 @@ Changelog
 
 0.8dev (unreleased)
 -------------------
+- Fixed Warning "Develop distribution: medialog.mobilethemeTwo 0.7.1.2 uses 
+  namespace packages but the distribution does not require setuptools" [macagua]
+
 - Enabled zettwerk.mobiletheming package when theme was installed [macagua]
 
 - Added a simple Diazo theme package (Zip file) [macagua]

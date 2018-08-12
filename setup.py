@@ -46,6 +46,8 @@ setup(name='medialog.mobilethemeTwo',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          'setuptools',
+          # -*- Extra requirements: -*-
           'collective.z3cform.datagridfield',
           'ftw.mobilenavigation',
           'plone.api',
@@ -53,7 +55,6 @@ setup(name='medialog.mobilethemeTwo',
           'z3c.jbot',
           'zettwerk.mobiletheming',
           
-          # -*- Extra requirements: -*-
       ],
       entry_points="""
       # -*- Entry points: -*-
